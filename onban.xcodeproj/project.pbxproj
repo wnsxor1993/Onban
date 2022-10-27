@@ -13,6 +13,11 @@
 		D2D92A03290A093400D46676 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A02290A093400D46676 /* LoginVC.swift */; };
 		D2D92A08290A093500D46676 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2D92A07290A093500D46676 /* Assets.xcassets */; };
 		D2D92A0B290A093500D46676 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2D92A09290A093500D46676 /* LaunchScreen.storyboard */; };
+		D2D92A1D290A4ABE00D46676 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A1C290A4ABE00D46676 /* Coordinator.swift */; };
+		D2D92A20290A4BE400D46676 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A1F290A4BE400D46676 /* AppCoordinator.swift */; };
+		D2D92A22290A52C800D46676 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A21290A52C800D46676 /* LoginCoordinator.swift */; };
+		D2D92A28290A567000D46676 /* LoginVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A27290A567000D46676 /* LoginVCDelegate.swift */; };
+		D2D92A2A290A570700D46676 /* LoginCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A29290A570700D46676 /* LoginCoordinatorDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		D2D92A07290A093500D46676 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2D92A0A290A093500D46676 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2D92A0C290A093500D46676 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2D92A1C290A4ABE00D46676 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		D2D92A1F290A4BE400D46676 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		D2D92A21290A52C800D46676 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		D2D92A27290A567000D46676 /* LoginVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCDelegate.swift; sourceTree = "<group>"; };
+		D2D92A29290A570700D46676 /* LoginCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinatorDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,8 +174,29 @@
 		D2D92A1B290A4A7900D46676 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				D2D92A1E290A4BD300D46676 /* protocol */,
+				D2D92A26290A564200D46676 /* delegate */,
+				D2D92A1F290A4BE400D46676 /* AppCoordinator.swift */,
+				D2D92A21290A52C800D46676 /* LoginCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		D2D92A1E290A4BD300D46676 /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				D2D92A1C290A4ABE00D46676 /* Coordinator.swift */,
+			);
+			path = protocol;
+			sourceTree = "<group>";
+		};
+		D2D92A26290A564200D46676 /* delegate */ = {
+			isa = PBXGroup;
+			children = (
+				D2D92A27290A567000D46676 /* LoginVCDelegate.swift */,
+				D2D92A29290A570700D46676 /* LoginCoordinatorDelegate.swift */,
+			);
+			path = delegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,7 +313,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2D92A28290A567000D46676 /* LoginVCDelegate.swift in Sources */,
+				D2D92A2A290A570700D46676 /* LoginCoordinatorDelegate.swift in Sources */,
+				D2D92A22290A52C800D46676 /* LoginCoordinator.swift in Sources */,
+				D2D92A1D290A4ABE00D46676 /* Coordinator.swift in Sources */,
 				D2D92A03290A093400D46676 /* LoginVC.swift in Sources */,
+				D2D92A20290A4BE400D46676 /* AppCoordinator.swift in Sources */,
 				D2D929FF290A093400D46676 /* AppDelegate.swift in Sources */,
 				D2D92A01290A093400D46676 /* SceneDelegate.swift in Sources */,
 			);
@@ -429,7 +465,6 @@
 				INFOPLIST_FILE = onban/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -459,7 +494,6 @@
 				INFOPLIST_FILE = onban/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

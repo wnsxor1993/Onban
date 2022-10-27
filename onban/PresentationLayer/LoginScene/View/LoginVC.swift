@@ -9,6 +9,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    weak var coordinatorDelegate: LoginVCDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
