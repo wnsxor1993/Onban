@@ -7,43 +7,54 @@
 
 import UIKit
 
-class AppCoordinator: Coordinator, LoginCoordinatorDelegate {
-    
-    var presenter: UINavigationController
+class AppCoordinator: Coordinator {
     
     var childCoordinators: [Coordinator] = []
+    let window: UIWindow?
     
-    init(navigation: UINavigationController) {
-        self.presenter = navigation
+    init(_ window: UIWindow?) {
+        self.window = window
+        self.window?.makeKeyAndVisible()
     }
     
     func start() {
-        showLoginScene()
-    }
-    
-    func didLogIn(_ coordinator: LoginCoordinator) {
-        for (index, coor) in childCoordinators.enumerated() {
-            guard coor === coordinator else { break }
-            
-            childCoordinators.remove(at: index)
-            
-            return
-        }
-        
-        showMainScene()
+        let tabBar = setTabBarController()
+        self.window?.rootViewController = tabBar
     }
 }
 
 private extension AppCoordinator {
     
-    func showLoginScene() {
-        let loginCoorinator = LoginCoordinator(navi: self.presenter)
-        self.childCoordinators.append(loginCoorinator)
+    func setTabBarController() -> UITabBarController {
+        let tabBarController = UITabBarController()
         
-        loginCoorinator.start()
-    }
-    
-    func showMainScene() {
+        let firstItem = UITabBarItem(title: "Main", image: nil, tag: 0)
+        let secondItem = UITabBarItem(title: "Soup", image: nil, tag: 1)
+        let thirdItem = UITabBarItem(title: "Side", image: nil, tag: 2)
         
+        let firstCoordinator = FirstSectionCoordinator()
+        firstCoordinator.parentCoordinator = self
+        self.childCoordinators.append(firstCoordinator)
+        
+        let firstVC = firstCoordinator.startPush()
+        firstVC.tabBarItem = firstItem
+        
+        let secondCoordinator = SecondSectionCoordinator()
+        secondCoordinator.parentCoordinator = self
+        self.childCoordinators.append(secondCoordinator)
+        
+        let secondVC = secondCoordinator.startPush()
+        secondVC.tabBarItem = secondItem
+        
+        let thirdCoordinator = ThirdSectionCoordinator()
+        thirdCoordinator.parentCoordinator = self
+        self.childCoordinators.append(thirdCoordinator)
+        
+        let thirdVC = thirdCoordinator.startPush()
+        thirdVC.tabBarItem = thirdItem
+        
+        tabBarController.viewControllers = [firstVC, secondVC, thirdVC]
+        
+        return tabBarController
     }
 }
