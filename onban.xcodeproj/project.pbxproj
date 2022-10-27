@@ -79,17 +79,21 @@
 			isa = PBXGroup;
 			children = (
 				D2D92A16290A49F200D46676 /* Important */,
-				D2D92A12290A497A00D46676 /* Presentation */,
+				D2D92A1A290A4A6E00D46676 /* Helper */,
+				D2D92A12290A497A00D46676 /* PresentationLayer */,
+				D2D92A17290A4A2500D46676 /* DomainLayer */,
+				D2D92A18290A4A2E00D46676 /* DataLayer */,
+				D2D92A19290A4A3200D46676 /* NetworkLayer */,
 			);
 			path = onban;
 			sourceTree = "<group>";
 		};
-		D2D92A12290A497A00D46676 /* Presentation */ = {
+		D2D92A12290A497A00D46676 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
 				D2D92A13290A49A300D46676 /* LoginScene */,
 			);
-			path = Presentation;
+			path = PresentationLayer;
 			sourceTree = "<group>";
 		};
 		D2D92A13290A49A300D46676 /* LoginScene */ = {
@@ -126,6 +130,42 @@
 				D2D92A0C290A093500D46676 /* Info.plist */,
 			);
 			path = Important;
+			sourceTree = "<group>";
+		};
+		D2D92A17290A4A2500D46676 /* DomainLayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DomainLayer;
+			sourceTree = "<group>";
+		};
+		D2D92A18290A4A2E00D46676 /* DataLayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataLayer;
+			sourceTree = "<group>";
+		};
+		D2D92A19290A4A3200D46676 /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		D2D92A1A290A4A6E00D46676 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				D2D92A1B290A4A7900D46676 /* Coordinator */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		D2D92A1B290A4A7900D46676 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
