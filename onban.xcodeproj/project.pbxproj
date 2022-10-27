@@ -10,8 +10,7 @@
 		1517767885051CCB55E09A4A /* Pods_onban.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F44B96DBCF37984DA8290FD /* Pods_onban.framework */; };
 		D2D929FF290A093400D46676 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D929FE290A093400D46676 /* AppDelegate.swift */; };
 		D2D92A01290A093400D46676 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A00290A093400D46676 /* SceneDelegate.swift */; };
-		D2D92A03290A093400D46676 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A02290A093400D46676 /* ViewController.swift */; };
-		D2D92A06290A093400D46676 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2D92A04290A093400D46676 /* Main.storyboard */; };
+		D2D92A03290A093400D46676 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A02290A093400D46676 /* LoginVC.swift */; };
 		D2D92A08290A093500D46676 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2D92A07290A093500D46676 /* Assets.xcassets */; };
 		D2D92A0B290A093500D46676 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2D92A09290A093500D46676 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -23,8 +22,7 @@
 		D2D929FB290A093400D46676 /* onban.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = onban.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2D929FE290A093400D46676 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2D92A00290A093400D46676 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D2D92A02290A093400D46676 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D2D92A05290A093400D46676 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D2D92A02290A093400D46676 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		D2D92A07290A093500D46676 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2D92A0A290A093500D46676 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2D92A0C290A093500D46676 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,15 +78,54 @@
 		D2D929FD290A093400D46676 /* onban */ = {
 			isa = PBXGroup;
 			children = (
+				D2D92A16290A49F200D46676 /* Important */,
+				D2D92A12290A497A00D46676 /* Presentation */,
+			);
+			path = onban;
+			sourceTree = "<group>";
+		};
+		D2D92A12290A497A00D46676 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				D2D92A13290A49A300D46676 /* LoginScene */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		D2D92A13290A49A300D46676 /* LoginScene */ = {
+			isa = PBXGroup;
+			children = (
+				D2D92A15290A49C800D46676 /* ViewModel */,
+				D2D92A14290A49C300D46676 /* View */,
+			);
+			path = LoginScene;
+			sourceTree = "<group>";
+		};
+		D2D92A14290A49C300D46676 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D2D92A02290A093400D46676 /* LoginVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D2D92A15290A49C800D46676 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D2D92A16290A49F200D46676 /* Important */ = {
+			isa = PBXGroup;
+			children = (
 				D2D929FE290A093400D46676 /* AppDelegate.swift */,
 				D2D92A00290A093400D46676 /* SceneDelegate.swift */,
-				D2D92A02290A093400D46676 /* ViewController.swift */,
-				D2D92A04290A093400D46676 /* Main.storyboard */,
 				D2D92A07290A093500D46676 /* Assets.xcassets */,
 				D2D92A09290A093500D46676 /* LaunchScreen.storyboard */,
 				D2D92A0C290A093500D46676 /* Info.plist */,
 			);
-			path = onban;
+			path = Important;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,7 +190,6 @@
 			files = (
 				D2D92A0B290A093500D46676 /* LaunchScreen.storyboard in Resources */,
 				D2D92A08290A093500D46676 /* Assets.xcassets in Resources */,
-				D2D92A06290A093400D46676 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,7 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2D92A03290A093400D46676 /* ViewController.swift in Sources */,
+				D2D92A03290A093400D46676 /* LoginVC.swift in Sources */,
 				D2D929FF290A093400D46676 /* AppDelegate.swift in Sources */,
 				D2D92A01290A093400D46676 /* SceneDelegate.swift in Sources */,
 			);
@@ -215,14 +251,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D2D92A04290A093400D46676 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D2D92A05290A093400D46676 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D2D92A09290A093500D46676 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -356,7 +384,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				DEVELOPMENT_TEAM = Q646ABLXY6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = onban/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -386,7 +414,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				DEVELOPMENT_TEAM = Q646ABLXY6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = onban/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
