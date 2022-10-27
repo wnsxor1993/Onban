@@ -18,6 +18,7 @@
 		D2D92A22290A52C800D46676 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A21290A52C800D46676 /* LoginCoordinator.swift */; };
 		D2D92A28290A567000D46676 /* LoginVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A27290A567000D46676 /* LoginVCDelegate.swift */; };
 		D2D92A2A290A570700D46676 /* LoginCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A29290A570700D46676 /* LoginCoordinatorDelegate.swift */; };
+		D2D92A2D290A5C5400D46676 /* UIView +.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A2C290A5C5400D46676 /* UIView +.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		D2D92A21290A52C800D46676 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		D2D92A27290A567000D46676 /* LoginVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCDelegate.swift; sourceTree = "<group>"; };
 		D2D92A29290A570700D46676 /* LoginCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinatorDelegate.swift; sourceTree = "<group>"; };
+		D2D92A2C290A5C5400D46676 /* UIView +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView +.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 		D2D92A1A290A4A6E00D46676 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				D2D92A2B290A5C4500D46676 /* Extension */,
 				D2D92A1B290A4A7900D46676 /* Coordinator */,
 			);
 			path = Helper;
@@ -197,6 +200,14 @@
 				D2D92A29290A570700D46676 /* LoginCoordinatorDelegate.swift */,
 			);
 			path = delegate;
+			sourceTree = "<group>";
+		};
+		D2D92A2B290A5C4500D46676 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D2D92A2C290A5C5400D46676 /* UIView +.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,6 +331,7 @@
 				D2D92A03290A093400D46676 /* LoginVC.swift in Sources */,
 				D2D92A20290A4BE400D46676 /* AppCoordinator.swift in Sources */,
 				D2D929FF290A093400D46676 /* AppDelegate.swift in Sources */,
+				D2D92A2D290A5C5400D46676 /* UIView +.swift in Sources */,
 				D2D92A01290A093400D46676 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,7 +472,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q646ABLXY6;
+				DEVELOPMENT_TEAM = B3PWYBKFUK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = onban/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -489,7 +501,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q646ABLXY6;
+				DEVELOPMENT_TEAM = B3PWYBKFUK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = onban/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
