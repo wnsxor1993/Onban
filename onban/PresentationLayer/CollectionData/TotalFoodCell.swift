@@ -65,6 +65,17 @@ final class TotalFoodCell: UICollectionViewCell {
         fatalError()
     }
     
+    func setFoodValues(image: UIImage, title: String, description: String, amount: String, discount: String?) {
+        self.imageView.image = image
+        self.foodNameLabel.text = title
+        self.foodDescriptionLabel.text = description
+        self.foodAmountLabel.text = amount
+        
+        guard let discount = discount else { return }
+        
+        self.foodDiscountLabel.attributedText = discount.strikeThrough()
+    }
+    
     func setEventLabel(_ event: String) {
         let label = UILabel().then {
             $0.font = .systemFont(ofSize: 12, weight: .semibold)
@@ -76,17 +87,19 @@ final class TotalFoodCell: UICollectionViewCell {
         switch event {
         case "런칭특가":
             label.frame = CGRect(x: 0, y: 0, width: 77, height: 24)
-            label.backgroundColor = .blue
+            label.backgroundColor = .launchingEvent
             label.text = event
             
         case "이벤트특가":
             label.frame = CGRect(x: 0, y: 0, width: 89, height: 24)
-            label.backgroundColor = .blue
+            label.backgroundColor = .eventAmount
             label.text = event
             
         default:
             return
         }
+        
+        eventStackView.addArrangedSubview(label)
     }
 }
 
