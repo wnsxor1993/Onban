@@ -13,23 +13,18 @@ class ThirdSectionCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
     
-    init() {
-        self.navigationController = .init()
+    init(_ navigation: UINavigationController) {
+        self.navigationController = navigation
     }
     
     func start() {
-        
-    }
-    
-    func startPush() -> UINavigationController {
         let sideVC = SideViewController()
         sideVC.deleage = self
-        sideVC.view.backgroundColor = .white
+        sideVC.view.backgroundColor = .green
+        sideVC.tabBarItem = UITabBarItem(title: "Side", image: nil, tag: 2)
         
         self.navigationController.setNavigationBarHidden(true, animated: false)
-        self.navigationController.setViewControllers([sideVC], animated: false)
-        
-        return self.navigationController
+        self.navigationController.pushViewController(sideVC, animated: false)
     }
 }
 

@@ -22,6 +22,9 @@
 		D2D92A39290A6B3400D46676 /* SideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A38290A6B3400D46676 /* SideVC.swift */; };
 		D2D92A3B290A6B6800D46676 /* SecondSectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A3A290A6B6800D46676 /* SecondSectionCoordinator.swift */; };
 		D2D92A3D290A6B8E00D46676 /* ThirdSectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A3C290A6B8E00D46676 /* ThirdSectionCoordinator.swift */; };
+		D2D92A41290B5D5B00D46676 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A40290B5D5B00D46676 /* MainCoordinator.swift */; };
+		D2D92A43290B5DE100D46676 /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A42290B5DE100D46676 /* MainTabBarVC.swift */; };
+		D2D92A45290B665B00D46676 /* UIColor +.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A44290B665B00D46676 /* UIColor +.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		D2D92A38290A6B3400D46676 /* SideVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideVC.swift; sourceTree = "<group>"; };
 		D2D92A3A290A6B6800D46676 /* SecondSectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSectionCoordinator.swift; sourceTree = "<group>"; };
 		D2D92A3C290A6B8E00D46676 /* ThirdSectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdSectionCoordinator.swift; sourceTree = "<group>"; };
+		D2D92A40290B5D5B00D46676 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		D2D92A42290B5DE100D46676 /* MainTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVC.swift; sourceTree = "<group>"; };
+		D2D92A44290B665B00D46676 /* UIColor +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor +.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +125,7 @@
 		D2D92A13290A49A300D46676 /* MainTab */ = {
 			isa = PBXGroup;
 			children = (
+				D2D92A42290B5DE100D46676 /* MainTabBarVC.swift */,
 				D2D92A15290A49C800D46676 /* ViewModel */,
 				D2D92A14290A49C300D46676 /* View */,
 			);
@@ -189,6 +196,7 @@
 				D2D92A1E290A4BD300D46676 /* protocol */,
 				D2D92A26290A564200D46676 /* delegate */,
 				D2D92A21290A52C800D46676 /* AppCoordinator.swift */,
+				D2D92A40290B5D5B00D46676 /* MainCoordinator.swift */,
 				D2D92A30290A681D00D46676 /* FirstSectionCoordinator.swift */,
 				D2D92A3A290A6B6800D46676 /* SecondSectionCoordinator.swift */,
 				D2D92A3C290A6B8E00D46676 /* ThirdSectionCoordinator.swift */,
@@ -215,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				D2D92A2C290A5C5400D46676 /* UIView +.swift */,
+				D2D92A44290B665B00D46676 /* UIColor +.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -365,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2D92A45290B665B00D46676 /* UIColor +.swift in Sources */,
 				D2D92A22290A52C800D46676 /* AppCoordinator.swift in Sources */,
 				D2D92A3B290A6B6800D46676 /* SecondSectionCoordinator.swift in Sources */,
 				D2D92A31290A681D00D46676 /* FirstSectionCoordinator.swift in Sources */,
@@ -375,6 +385,8 @@
 				D2D92A03290A093400D46676 /* MainVC.swift in Sources */,
 				D2D929FF290A093400D46676 /* AppDelegate.swift in Sources */,
 				D2D92A2D290A5C5400D46676 /* UIView +.swift in Sources */,
+				D2D92A41290B5D5B00D46676 /* MainCoordinator.swift in Sources */,
+				D2D92A43290B5DE100D46676 /* MainTabBarVC.swift in Sources */,
 				D2D92A2F290A5D2300D46676 /* MainViewModel.swift in Sources */,
 				D2D92A01290A093400D46676 /* SceneDelegate.swift in Sources */,
 			);

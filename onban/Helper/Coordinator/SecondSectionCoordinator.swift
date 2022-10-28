@@ -13,22 +13,17 @@ class SecondSectionCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
     
-    init() {
-        self.navigationController = .init()
+    init(_ navigation: UINavigationController) {
+        self.navigationController = navigation
     }
     
     func start() {
-        
-    }
-    
-    func startPush() -> UINavigationController {
         let soupVC = SoupViewController()
         soupVC.deleage = self
-        soupVC.view.backgroundColor = .white
+        soupVC.view.backgroundColor = .blue
+        soupVC.tabBarItem = UITabBarItem(title: "Soup", image: nil, tag: 1)
         
         self.navigationController.setNavigationBarHidden(true, animated: false)
-        self.navigationController.setViewControllers([soupVC], animated: false)
-        
-        return self.navigationController
+        self.navigationController.pushViewController(soupVC, animated: false)
     }
 }
