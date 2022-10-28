@@ -28,6 +28,7 @@
 		D2D92A49290B6C2700D46676 /* TotalFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A48290B6C2600D46676 /* TotalFoodCell.swift */; };
 		D2D92A4B290B736200D46676 /* String +.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A4A290B736200D46676 /* String +.swift */; };
 		D2D92A4D290B757200D46676 /* StackView +.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A4C290B757200D46676 /* StackView +.swift */; };
+		D2D92A4F290BA2BA00D46676 /* CollectionViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A4E290BA2BA00D46676 /* CollectionViewDatasource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		D2D92A48290B6C2600D46676 /* TotalFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalFoodCell.swift; sourceTree = "<group>"; };
 		D2D92A4A290B736200D46676 /* String +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String +.swift"; sourceTree = "<group>"; };
 		D2D92A4C290B757200D46676 /* StackView +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView +.swift"; sourceTree = "<group>"; };
+		D2D92A4E290BA2BA00D46676 /* CollectionViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDatasource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +282,7 @@
 		D2D92A47290B6BCF00D46676 /* CollectionData */ = {
 			isa = PBXGroup;
 			children = (
+				D2D92A4E290BA2BA00D46676 /* CollectionViewDatasource.swift */,
 				D2D92A48290B6C2600D46676 /* TotalFoodCell.swift */,
 			);
 			path = CollectionData;
@@ -409,6 +412,7 @@
 				D2D92A3D290A6B8E00D46676 /* ThirdSectionCoordinator.swift in Sources */,
 				D2D92A39290A6B3400D46676 /* SideVC.swift in Sources */,
 				D2D92A1D290A4ABE00D46676 /* Coordinator.swift in Sources */,
+				D2D92A4F290BA2BA00D46676 /* CollectionViewDatasource.swift in Sources */,
 				D2D92A03290A093400D46676 /* MainVC.swift in Sources */,
 				D2D929FF290A093400D46676 /* AppDelegate.swift in Sources */,
 				D2D92A49290B6C2700D46676 /* TotalFoodCell.swift in Sources */,
