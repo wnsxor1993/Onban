@@ -10,7 +10,7 @@ import Then
 import SnapKit
 import RxCocoa
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     
     private var sectionLabel = UILabel().then {
         $0.textColor = .sectionHeader
@@ -48,16 +48,14 @@ private extension MainViewController {
     func configureLayouts() {
         sectionLabel.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(24)
-            make.left.equalTo(self.view).offset(16)
-            make.right.equalTo(self.view).offset(16)
+            make.left.right.equalTo(self.view).offset(16)
             make.height.equalTo(96)
         }
         
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(sectionLabel).offset(24)
             make.bottom.equalTo(self.view)
-            make.left.equalTo(self.view).offset(16)
-            make.right.equalTo(self.view).offset(16)
+            make.left.right.equalTo(self.view).offset(16)
         }
     }
 }

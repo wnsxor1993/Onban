@@ -10,7 +10,7 @@ import Then
 import SnapKit
 import RxCocoa
 
-class SideViewController: UIViewController {
+final class SideViewController: UIViewController {
     
     weak var deleage: Coordinator?
     

@@ -10,7 +10,7 @@ import Then
 import SnapKit
 import RxCocoa
 
-class SoupViewController: UIViewController {
+final class SoupViewController: UIViewController {
     
     weak var deleage: Coordinator?
     

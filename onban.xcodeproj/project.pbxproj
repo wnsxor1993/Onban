@@ -25,6 +25,9 @@
 		D2D92A41290B5D5B00D46676 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A40290B5D5B00D46676 /* MainCoordinator.swift */; };
 		D2D92A43290B5DE100D46676 /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A42290B5DE100D46676 /* MainTabBarVC.swift */; };
 		D2D92A45290B665B00D46676 /* UIColor +.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A44290B665B00D46676 /* UIColor +.swift */; };
+		D2D92A49290B6C2700D46676 /* TotalFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A48290B6C2600D46676 /* TotalFoodCell.swift */; };
+		D2D92A4B290B736200D46676 /* String +.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A4A290B736200D46676 /* String +.swift */; };
+		D2D92A4D290B757200D46676 /* StackView +.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A4C290B757200D46676 /* StackView +.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		D2D92A40290B5D5B00D46676 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		D2D92A42290B5DE100D46676 /* MainTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVC.swift; sourceTree = "<group>"; };
 		D2D92A44290B665B00D46676 /* UIColor +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor +.swift"; sourceTree = "<group>"; };
+		D2D92A48290B6C2600D46676 /* TotalFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalFoodCell.swift; sourceTree = "<group>"; };
+		D2D92A4A290B736200D46676 /* String +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String +.swift"; sourceTree = "<group>"; };
+		D2D92A4C290B757200D46676 /* StackView +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView +.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,9 +121,8 @@
 		D2D92A12290A497A00D46676 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
-				D2D92A13290A49A300D46676 /* MainTab */,
-				D2D92A32290A6AE800D46676 /* SoupTab */,
-				D2D92A36290A6B1E00D46676 /* SideTab */,
+				D2D92A47290B6BCF00D46676 /* CollectionData */,
+				D2D92A46290B6BB500D46676 /* TabBarScene */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -125,7 +130,6 @@
 		D2D92A13290A49A300D46676 /* MainTab */ = {
 			isa = PBXGroup;
 			children = (
-				D2D92A42290B5DE100D46676 /* MainTabBarVC.swift */,
 				D2D92A15290A49C800D46676 /* ViewModel */,
 				D2D92A14290A49C300D46676 /* View */,
 			);
@@ -224,6 +228,8 @@
 			children = (
 				D2D92A2C290A5C5400D46676 /* UIView +.swift */,
 				D2D92A44290B665B00D46676 /* UIColor +.swift */,
+				D2D92A4A290B736200D46676 /* String +.swift */,
+				D2D92A4C290B757200D46676 /* StackView +.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -258,6 +264,25 @@
 				D2D92A38290A6B3400D46676 /* SideVC.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D2D92A46290B6BB500D46676 /* TabBarScene */ = {
+			isa = PBXGroup;
+			children = (
+				D2D92A42290B5DE100D46676 /* MainTabBarVC.swift */,
+				D2D92A13290A49A300D46676 /* MainTab */,
+				D2D92A32290A6AE800D46676 /* SoupTab */,
+				D2D92A36290A6B1E00D46676 /* SideTab */,
+			);
+			path = TabBarScene;
+			sourceTree = "<group>";
+		};
+		D2D92A47290B6BCF00D46676 /* CollectionData */ = {
+			isa = PBXGroup;
+			children = (
+				D2D92A48290B6C2600D46676 /* TotalFoodCell.swift */,
+			);
+			path = CollectionData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,9 +399,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2D92A4D290B757200D46676 /* StackView +.swift in Sources */,
 				D2D92A45290B665B00D46676 /* UIColor +.swift in Sources */,
 				D2D92A22290A52C800D46676 /* AppCoordinator.swift in Sources */,
 				D2D92A3B290A6B6800D46676 /* SecondSectionCoordinator.swift in Sources */,
+				D2D92A4B290B736200D46676 /* String +.swift in Sources */,
 				D2D92A31290A681D00D46676 /* FirstSectionCoordinator.swift in Sources */,
 				D2D92A35290A6B0100D46676 /* SoupVC.swift in Sources */,
 				D2D92A3D290A6B8E00D46676 /* ThirdSectionCoordinator.swift in Sources */,
@@ -384,6 +411,7 @@
 				D2D92A1D290A4ABE00D46676 /* Coordinator.swift in Sources */,
 				D2D92A03290A093400D46676 /* MainVC.swift in Sources */,
 				D2D929FF290A093400D46676 /* AppDelegate.swift in Sources */,
+				D2D92A49290B6C2700D46676 /* TotalFoodCell.swift in Sources */,
 				D2D92A2D290A5C5400D46676 /* UIView +.swift in Sources */,
 				D2D92A41290B5D5B00D46676 /* MainCoordinator.swift in Sources */,
 				D2D92A43290B5DE100D46676 /* MainTabBarVC.swift in Sources */,

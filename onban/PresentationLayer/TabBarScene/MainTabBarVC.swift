@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainTabBarVC: UITabBarController {
+final class MainTabBarVC: UITabBarController {
     
     weak var coordinatorDelegate: Coordinator?
     
