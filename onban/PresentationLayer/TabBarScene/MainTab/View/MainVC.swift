@@ -75,7 +75,8 @@ private extension MainViewController {
         }
     }
     
+    // MARK: CollectionView Data Binidng with Rx
     func configureFoodData() {
-        
+        // TODO: ViewModel Observable 정의 및 Model 생성 필요
     }
 }

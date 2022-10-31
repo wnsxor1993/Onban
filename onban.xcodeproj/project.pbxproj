@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1517767885051CCB55E09A4A /* Pods_onban.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F44B96DBCF37984DA8290FD /* Pods_onban.framework */; };
+		D28CED8A290F627700ADDD79 /* OnbanFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CED89290F627700ADDD79 /* OnbanFood.swift */; };
 		D2D929FF290A093400D46676 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D929FE290A093400D46676 /* AppDelegate.swift */; };
 		D2D92A01290A093400D46676 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A00290A093400D46676 /* SceneDelegate.swift */; };
 		D2D92A03290A093400D46676 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A02290A093400D46676 /* MainVC.swift */; };
@@ -35,6 +36,7 @@
 		6F44B96DBCF37984DA8290FD /* Pods_onban.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_onban.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9356E8767AF3709C251677B5 /* Pods-onban.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onban.debug.xcconfig"; path = "Target Support Files/Pods-onban/Pods-onban.debug.xcconfig"; sourceTree = "<group>"; };
 		A0C2773FF2FD8FE9B518CD09 /* Pods-onban.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onban.release.xcconfig"; path = "Target Support Files/Pods-onban/Pods-onban.release.xcconfig"; sourceTree = "<group>"; };
+		D28CED89290F627700ADDD79 /* OnbanFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbanFood.swift; sourceTree = "<group>"; };
 		D2D929FB290A093400D46676 /* onban.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = onban.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2D929FE290A093400D46676 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2D92A00290A093400D46676 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,14 @@
 				A0C2773FF2FD8FE9B518CD09 /* Pods-onban.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D28CED88290F625700ADDD79 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D28CED89290F627700ADDD79 /* OnbanFood.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D2D929F2290A093400D46676 = {
@@ -176,6 +186,7 @@
 		D2D92A18290A4A2E00D46676 /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
+				D28CED88290F625700ADDD79 /* Model */,
 			);
 			path = DataLayer;
 			sourceTree = "<group>";
@@ -410,6 +421,7 @@
 				D2D92A31290A681D00D46676 /* FirstSectionCoordinator.swift in Sources */,
 				D2D92A35290A6B0100D46676 /* SoupVC.swift in Sources */,
 				D2D92A3D290A6B8E00D46676 /* ThirdSectionCoordinator.swift in Sources */,
+				D28CED8A290F627700ADDD79 /* OnbanFood.swift in Sources */,
 				D2D92A39290A6B3400D46676 /* SideVC.swift in Sources */,
 				D2D92A1D290A4ABE00D46676 /* Coordinator.swift in Sources */,
 				D2D92A4F290BA2BA00D46676 /* CollectionViewDatasource.swift in Sources */,

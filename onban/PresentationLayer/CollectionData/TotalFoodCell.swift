@@ -62,7 +62,7 @@ final class TotalFoodCell: UICollectionViewCell {
 
     @available(*, unavailable)
     required init?(coder: NSCoder) {
-        fatalError()
+        fatalError("This class does not support NSCoder")
     }
     
     func setFoodValues(image: UIImage, title: String, description: String, amount: String, discount: String?) {
@@ -85,7 +85,7 @@ final class TotalFoodCell: UICollectionViewCell {
         }
         
         switch event {
-        case "런칭특가":
+        case "런칭특가", "메인특가":
             label.frame = CGRect(x: 0, y: 0, width: 77, height: 24)
             label.backgroundColor = .launchingEvent
             label.text = event
