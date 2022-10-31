@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct OnbanFood: Codable {
+struct MainData: Codable {
     let statusCode: Int
-    let body: [Body]
+    let body: [OnbanFood]
 }
 
 // MARK: - Body
-struct Body: Codable {
+struct OnbanFood: Codable {
     let detailHash: String
     let image: String
     let description: String

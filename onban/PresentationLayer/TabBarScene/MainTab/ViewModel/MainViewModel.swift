@@ -9,6 +9,25 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class MainViewModel {
+final class MainViewModel {
     
+    struct CollectionViewInput {
+        let defaultShowingDataEvent: Observable<Void>
+    }
+    
+    struct CollectionViewOutput {
+        let onbanFoodData = PublishSubject<[OnbanFood]>()
+    }
+    
+    func transform(input: CollectionViewInput, disposeBag: DisposeBag) -> CollectionViewOutput {
+        let output = CollectionViewOutput()
+        
+        input.defaultShowingDataEvent
+            .subscribe({ [weak self] _ in
+                
+            })
+            .disposed(by: disposeBag)
+        
+        return output
+    }
 }

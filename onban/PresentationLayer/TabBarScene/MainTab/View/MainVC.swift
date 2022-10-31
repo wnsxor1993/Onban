@@ -13,19 +13,20 @@ import RxCocoa
 
 final class MainViewController: UIViewController {
     
-    private var sectionLabel = UILabel().then {
+    private let sectionLabel = UILabel().then {
         $0.textColor = .sectionHeader
         $0.numberOfLines = 2
         $0.font = .systemFont(ofSize: 32, weight: .regular)
         $0.text = "모두가 좋아하는\n든든한 메인 요리"
     }
     
-    private lazy var collectionView = UICollectionView().then {
+    private lazy var onbanCollectionView = UICollectionView().then {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 8
         
         $0.collectionViewLayout = layout
-        $0.delegate = self
+        $0.register(TotalFoodCell.self, forCellWithReuseIdentifier: TotalFoodCell.reuseIdentifier)
     }
     
     weak var deleage: Coordinator?
@@ -52,10 +53,12 @@ final class MainViewController: UIViewController {
     }
 }
 
-extension MainViewController: UICollectionViewDelegate {
+extension MainViewController: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = self.view.frame.width
         
+        return CGSize(width: width, height: 130)
     }
 }
 
@@ -68,7 +71,7 @@ private extension MainViewController {
             make.height.equalTo(96)
         }
         
-        collectionView.snp.makeConstraints { make in
+        onbanCollectionView.snp.makeConstraints { make in
             make.top.equalTo(sectionLabel).offset(24)
             make.bottom.equalTo(self.view)
             make.left.right.equalTo(self.view).offset(16)
@@ -78,5 +81,25 @@ private extension MainViewController {
     // MARK: CollectionView Data Binidng with Rx
     func configureFoodData() {
         // TODO: ViewModel Observable 정의 및 Model 생성 필요
+        let output = self.viewModel.transform(input: MainViewModel.CollectionViewInput(defaultShowingDataEvent: Observable.empty()), disposeBag: self.disposeBag)
+        
+        // Datasource binding
+        output.onbanFoodData
+            .bind(to: onbanCollectionView.rx
+                .items(cellIdentifier: TotalFoodCell.reuseIdentifier, cellType: TotalFoodCell.self)) { [weak self] index, value, cell in
+                    
+                }
+                .disposed(by: disposeBag)
+        
+        // cell select action
+        onbanCollectionView.rx.modelSelected(OnbanFood.self)
+            .bind { [weak self] model in
+                
+            }
+            .disposed(by: disposeBag)
+        
+        // CollectionView delegate setting
+        onbanCollectionView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
     }
 }

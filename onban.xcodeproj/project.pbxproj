@@ -91,12 +91,19 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		D28CED88290F625700ADDD79 /* Model */ = {
+		D28CED88290F625700ADDD79 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
 				D28CED89290F627700ADDD79 /* OnbanFood.swift */,
 			);
-			path = Model;
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		D28CED8B290F63BD00ADDD79 /* Usecase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Usecase;
 			sourceTree = "<group>";
 		};
 		D2D929F2290A093400D46676 = {
@@ -125,7 +132,6 @@
 				D2D92A12290A497A00D46676 /* PresentationLayer */,
 				D2D92A17290A4A2500D46676 /* DomainLayer */,
 				D2D92A18290A4A2E00D46676 /* DataLayer */,
-				D2D92A19290A4A3200D46676 /* NetworkLayer */,
 			);
 			path = onban;
 			sourceTree = "<group>";
@@ -179,6 +185,7 @@
 		D2D92A17290A4A2500D46676 /* DomainLayer */ = {
 			isa = PBXGroup;
 			children = (
+				D28CED8B290F63BD00ADDD79 /* Usecase */,
 			);
 			path = DomainLayer;
 			sourceTree = "<group>";
@@ -186,16 +193,17 @@
 		D2D92A18290A4A2E00D46676 /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
-				D28CED88290F625700ADDD79 /* Model */,
+				D28CED88290F625700ADDD79 /* DTO */,
+				D2D92A19290A4A3200D46676 /* Network */,
 			);
 			path = DataLayer;
 			sourceTree = "<group>";
 		};
-		D2D92A19290A4A3200D46676 /* NetworkLayer */ = {
+		D2D92A19290A4A3200D46676 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = NetworkLayer;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		D2D92A1A290A4A6E00D46676 /* Helper */ = {
