@@ -21,14 +21,14 @@ final class TotalFoodCell: UICollectionViewCell {
     }
     
     private var amountStackView = UIStackView().then {
-        $0.alignment = .leading
+        $0.alignment = .center
         $0.distribution = .fillEqually
         $0.axis = .horizontal
         $0.spacing = 4
     }
     
     private var eventStackView = UIStackView().then {
-        $0.alignment = .leading
+        $0.alignment = .center
         $0.distribution = .fillEqually
         $0.axis = .horizontal
         $0.spacing = 4
@@ -53,6 +53,7 @@ final class TotalFoodCell: UICollectionViewCell {
     }
     
     static let reuseIdentifier = "TotalFoodCell"
+    private var eventCount = 0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -65,7 +66,7 @@ final class TotalFoodCell: UICollectionViewCell {
         fatalError("This class does not support NSCoder")
     }
     
-    func setFoodValues(image: UIImage, title: String, description: String, amount: String, discount: String?) {
+    func setFoodValues(image: UIImage?, title: String, description: String, amount: String, discount: String?) {
         self.imageView.image = image
         self.foodNameLabel.text = title
         self.foodDescriptionLabel.text = description
@@ -81,25 +82,33 @@ final class TotalFoodCell: UICollectionViewCell {
             $0.font = .systemFont(ofSize: 12, weight: .semibold)
             $0.textColor = .white
             $0.textAlignment = .center
+            $0.clipsToBounds = true
             $0.layer.cornerRadius = 12
         }
         
+        self.eventCount += 1
+        
         switch event {
         case "런칭특가", "메인특가":
-            label.frame = CGRect(x: 0, y: 0, width: 77, height: 24)
+//            label.frame = CGRect(x: 0, y: 0, width: 77, height: 24)
             label.backgroundColor = .launchingEvent
             label.text = event
+            self.configureLayouts(with: 77, for: label)
             
         case "이벤트특가":
-            label.frame = CGRect(x: 0, y: 0, width: 89, height: 24)
+//            label.frame = CGRect(x: 0, y: 0, width: 89, height: 24)
             label.backgroundColor = .eventAmount
             label.text = event
+            self.configureLayouts(with: 89, for: label)
             
         default:
             return
         }
+    }
+    
+    func checkNowEventBadgeCounts() -> Int {
         
-        eventStackView.addArrangedSubview(label)
+        return self.eventCount
     }
 }
 
@@ -113,21 +122,30 @@ private extension TotalFoodCell {
         
         imageView.snp.makeConstraints { make in
             make.width.equalTo(self.snp.height)
-            make.top.bottom.left.equalTo(self)
+            make.top.bottom.left.equalToSuperview()
         }
         
         sectionStackView.snp.makeConstraints { make in
-            make.top.equalTo(self).offset(13)
-            make.left.equalTo(imageView).offset(8)
-            make.right.equalTo(self)
+            make.top.equalToSuperview().offset(13)
+            make.left.equalTo(imageView.snp.right).offset(8)
+            make.right.equalToSuperview()
             make.height.equalTo(72)
         }
         
         eventStackView.snp.makeConstraints { make in
-            make.top.equalTo(sectionStackView).offset(12)
-            make.left.equalTo(imageView).offset(8)
-            make.right.equalTo(self)
+            make.top.equalTo(sectionStackView.snp.bottom).offset(12)
+            make.left.equalTo(imageView.snp.right).offset(8)
+            make.right.equalToSuperview()
             make.height.equalTo(24)
+        }
+    }
+    
+    func configureLayouts(with width: CGFloat, for eventLabels: UILabel) {
+        eventStackView.addArrangedSubview(eventLabels)
+        
+        eventLabels.snp.makeConstraints { make in
+            make.width.equalTo(width)
+            make.height.equalToSuperview()
         }
     }
 }

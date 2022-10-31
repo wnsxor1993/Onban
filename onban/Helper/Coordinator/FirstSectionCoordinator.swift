@@ -18,8 +18,10 @@ class FirstSectionCoordinator: Coordinator {
     }
     
     func start() {
-        let mainVM = MainViewModel()
+        let mainUsecase: ViewMainUsecase = ViewDefaultMainUsecase()
+        let mainVM = MainViewModel(usecase: mainUsecase)
         let mainVC = MainViewController(viewModel: mainVM)
+        
         mainVC.deleage = self
         mainVC.view.backgroundColor = .white
         mainVC.tabBarItem = UITabBarItem(title: "Main", image: nil, tag: 0)

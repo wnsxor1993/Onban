@@ -8,12 +8,14 @@
 import Foundation
 
 struct MainData: Codable {
+    
     let statusCode: Int
-    let body: [OnbanFood]
+    let body: [OnbanFoodDTO]
 }
 
 // MARK: - Body
-struct OnbanFood: Codable {
+struct OnbanFoodDTO: Codable {
+    
     let detailHash: String
     let image: String
     let description: String
@@ -37,6 +39,7 @@ struct OnbanFood: Codable {
 }
 
 enum DeliveryType: String, Codable {
+    
     case 새벽배송 = "새벽배송"
     case 전국택배 = "전국택배"
 }

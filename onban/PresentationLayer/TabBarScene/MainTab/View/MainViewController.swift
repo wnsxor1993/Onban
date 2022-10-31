@@ -20,7 +20,7 @@ final class MainViewController: UIViewController {
         $0.text = "모두가 좋아하는\n든든한 메인 요리"
     }
     
-    private lazy var onbanCollectionView = UICollectionView().then {
+    private lazy var onbanCollectionView = UICollectionView(frame: .zero, collectionViewLayout: .init()).then {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 8
@@ -33,6 +33,9 @@ final class MainViewController: UIViewController {
     
     private var viewModel: MainViewModel
     private let disposeBag = DisposeBag()
+    private lazy var input = MainViewModel.CollectionViewInput(defaultShowingDataEvent: self.rx.viewWillAppear)
+    private lazy var output = self.viewModel.transform(input: input, disposeBag: self.disposeBag)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,41 +68,56 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
 private extension MainViewController {
     
     func configureLayouts() {
-        sectionLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(24)
-            make.left.right.equalTo(self.view).offset(16)
+        self.view.addSubviews(sectionLabel, onbanCollectionView)
+        
+        sectionLabel.snp.makeConstraints { [weak self] make in
+            guard let self = self else { return }
+            
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(24)
+            make.left.equalToSuperview().offset(16)
+            make.right.equalToSuperview().offset(-16)
             make.height.equalTo(96)
         }
         
         onbanCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(sectionLabel).offset(24)
-            make.bottom.equalTo(self.view)
-            make.left.right.equalTo(self.view).offset(16)
+            
+            make.top.equalTo(sectionLabel.snp.bottom).offset(24)
+            make.bottom.equalToSuperview()
+            make.left.equalToSuperview().offset(16)
+            make.right.equalToSuperview().offset(-16)
         }
     }
     
     // MARK: CollectionView Data Binidng with Rx
     func configureFoodData() {
         // TODO: ViewModel Observable 정의 및 Model 생성 필요
-        let output = self.viewModel.transform(input: MainViewModel.CollectionViewInput(defaultShowingDataEvent: Observable.empty()), disposeBag: self.disposeBag)
-        
         // Datasource binding
-        output.onbanFoodData
+        self.output.onbanFoodData
             .bind(to: onbanCollectionView.rx
-                .items(cellIdentifier: TotalFoodCell.reuseIdentifier, cellType: TotalFoodCell.self)) { [weak self] index, value, cell in
+                .items(cellIdentifier: TotalFoodCell.reuseIdentifier, cellType: TotalFoodCell.self)) { index, value, cell in
+                    let image = UIImage(data: value.image)
                     
+                    cell.setFoodValues(image: image, title: value.title, description: value.bodyDescription, amount: value.nPrice, discount: value.sPrice)
+                    
+                    guard let badges = value.badge, cell.checkNowEventBadgeCounts() != badges.count else { return }
+                    
+                    badges.forEach {
+                        cell.setEventLabel($0)
+                    }
                 }
                 .disposed(by: disposeBag)
         
         // cell select action
-        onbanCollectionView.rx.modelSelected(OnbanFood.self)
+        self.onbanCollectionView.rx.modelSelected(OnbanFoodEntity.self)
             .bind { [weak self] model in
+                guard let self = self else { return }
                 
+                // TODO: 셀 선택 시 상세 화면 이동 로직 구현 예정
             }
             .disposed(by: disposeBag)
         
         // CollectionView delegate setting
-        onbanCollectionView.rx.setDelegate(self)
+        self.onbanCollectionView.rx.setDelegate(self)
             .disposed(by: disposeBag)
     }
 }
