@@ -14,6 +14,8 @@
 		D28CED92290F847F00ADDD79 /* BasciUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CED91290F847F00ADDD79 /* BasciUsecase.swift */; };
 		D28CED95290F86A200ADDD79 /* OnbanFoodEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CED94290F86A200ADDD79 /* OnbanFoodEntity.swift */; };
 		D28CED97290F9D4900ADDD79 /* RxSwift +.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CED96290F9D4900ADDD79 /* RxSwift +.swift */; };
+		D28CED99290FB7CD00ADDD79 /* OnbanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CED98290FB7CD00ADDD79 /* OnbanService.swift */; };
+		D28CED9B290FBD2600ADDD79 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CED9A290FBD2600ADDD79 /* NetworkProvider.swift */; };
 		D2D929FF290A093400D46676 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D929FE290A093400D46676 /* AppDelegate.swift */; };
 		D2D92A01290A093400D46676 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A00290A093400D46676 /* SceneDelegate.swift */; };
 		D2D92A03290A093400D46676 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A02290A093400D46676 /* MainViewController.swift */; };
@@ -47,6 +49,8 @@
 		D28CED91290F847F00ADDD79 /* BasciUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasciUsecase.swift; sourceTree = "<group>"; };
 		D28CED94290F86A200ADDD79 /* OnbanFoodEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbanFoodEntity.swift; sourceTree = "<group>"; };
 		D28CED96290F9D4900ADDD79 /* RxSwift +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxSwift +.swift"; sourceTree = "<group>"; };
+		D28CED98290FB7CD00ADDD79 /* OnbanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbanService.swift; sourceTree = "<group>"; };
+		D28CED9A290FBD2600ADDD79 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		D2D929FB290A093400D46676 /* onban.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = onban.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2D929FE290A093400D46676 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2D92A00290A093400D46676 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +161,7 @@
 			children = (
 				D2D92A16290A49F200D46676 /* Important */,
 				D2D92A1A290A4A6E00D46676 /* Helper */,
+				D2D92A1B290A4A7900D46676 /* Coordinator */,
 				D2D92A12290A497A00D46676 /* PresentationLayer */,
 				D2D92A17290A4A2500D46676 /* DomainLayer */,
 				D2D92A18290A4A2E00D46676 /* DataLayer */,
@@ -232,6 +237,8 @@
 		D2D92A19290A4A3200D46676 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				D28CED98290FB7CD00ADDD79 /* OnbanService.swift */,
+				D28CED9A290FBD2600ADDD79 /* NetworkProvider.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -240,7 +247,6 @@
 			isa = PBXGroup;
 			children = (
 				D2D92A2B290A5C4500D46676 /* Extension */,
-				D2D92A1B290A4A7900D46676 /* Coordinator */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -454,6 +460,7 @@
 			files = (
 				D2D92A4D290B757200D46676 /* StackView +.swift in Sources */,
 				D2D92A45290B665B00D46676 /* UIColor +.swift in Sources */,
+				D28CED9B290FBD2600ADDD79 /* NetworkProvider.swift in Sources */,
 				D2D92A22290A52C800D46676 /* AppCoordinator.swift in Sources */,
 				D28CED95290F86A200ADDD79 /* OnbanFoodEntity.swift in Sources */,
 				D2D92A3B290A6B6800D46676 /* SecondSectionCoordinator.swift in Sources */,
@@ -470,6 +477,7 @@
 				D2D929FF290A093400D46676 /* AppDelegate.swift in Sources */,
 				D28CED92290F847F00ADDD79 /* BasciUsecase.swift in Sources */,
 				D2D92A49290B6C2700D46676 /* TotalFoodCell.swift in Sources */,
+				D28CED99290FB7CD00ADDD79 /* OnbanService.swift in Sources */,
 				D2D92A2D290A5C5400D46676 /* UIView +.swift in Sources */,
 				D2D92A41290B5D5B00D46676 /* MainCoordinator.swift in Sources */,
 				D28CED97290F9D4900ADDD79 /* RxSwift +.swift in Sources */,
