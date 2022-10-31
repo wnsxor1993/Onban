@@ -8,6 +8,7 @@
 import UIKit
 import Then
 import SnapKit
+import RxSwift
 import RxCocoa
 
 final class MainViewController: UIViewController {
@@ -29,10 +30,25 @@ final class MainViewController: UIViewController {
     
     weak var deleage: Coordinator?
     
+    private var viewModel: MainViewModel
+    private let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.configureLayouts()
+        self.configureFoodData()
+    }
+    
+    init(viewModel: MainViewModel) {
+        self.viewModel = viewModel
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("This class does not support NSCoder")
     }
 }
 
@@ -57,5 +73,9 @@ private extension MainViewController {
             make.bottom.equalTo(self.view)
             make.left.right.equalTo(self.view).offset(16)
         }
+    }
+    
+    func configureFoodData() {
+        
     }
 }

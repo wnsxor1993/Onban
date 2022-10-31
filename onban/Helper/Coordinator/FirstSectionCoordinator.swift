@@ -18,7 +18,8 @@ class FirstSectionCoordinator: Coordinator {
     }
     
     func start() {
-        let mainVC = MainViewController()
+        let mainVM = MainViewModel()
+        let mainVC = MainViewController(viewModel: mainVM)
         mainVC.deleage = self
         mainVC.view.backgroundColor = .white
         mainVC.tabBarItem = UITabBarItem(title: "Main", image: nil, tag: 0)
