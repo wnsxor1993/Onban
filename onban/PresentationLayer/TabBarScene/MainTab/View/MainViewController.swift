@@ -26,6 +26,8 @@ final class MainViewController: UIViewController {
         layout.minimumLineSpacing = 8
         
         $0.collectionViewLayout = layout
+        $0.showsVerticalScrollIndicator = false
+        $0.showsHorizontalScrollIndicator = false
         $0.register(TotalFoodCell.self, forCellWithReuseIdentifier: TotalFoodCell.reuseIdentifier)
     }
     
@@ -59,7 +61,7 @@ final class MainViewController: UIViewController {
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = self.view.frame.width
+        let width = (self.view.frame.width - 32)
         
         return CGSize(width: width, height: 130)
     }

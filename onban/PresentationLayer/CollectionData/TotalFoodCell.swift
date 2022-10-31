@@ -29,9 +29,15 @@ final class TotalFoodCell: UICollectionViewCell {
     
     private var eventStackView = UIStackView().then {
         $0.alignment = .center
-        $0.distribution = .fillEqually
+        $0.distribution = .fill
         $0.axis = .horizontal
         $0.spacing = 4
+    }
+    
+    private var eventScrollView = UIScrollView().then {
+        $0.showsVerticalScrollIndicator = false
+        $0.showsHorizontalScrollIndicator = false
+        $0.backgroundColor = .white
     }
     
     private var foodNameLabel = UILabel().then {
@@ -90,13 +96,11 @@ final class TotalFoodCell: UICollectionViewCell {
         
         switch event {
         case "런칭특가", "메인특가":
-//            label.frame = CGRect(x: 0, y: 0, width: 77, height: 24)
             label.backgroundColor = .launchingEvent
             label.text = event
             self.configureLayouts(with: 77, for: label)
             
         case "이벤트특가":
-//            label.frame = CGRect(x: 0, y: 0, width: 89, height: 24)
             label.backgroundColor = .eventAmount
             label.text = event
             self.configureLayouts(with: 89, for: label)
@@ -115,8 +119,9 @@ final class TotalFoodCell: UICollectionViewCell {
 private extension TotalFoodCell {
     
     func configureLayouts() {
-        self.addSubviews(imageView, sectionStackView, amountStackView, eventStackView)
+        self.addSubviews(imageView, sectionStackView, amountStackView, eventScrollView)
         
+        eventScrollView.addSubview(eventStackView)
         amountStackView.addArrangedSubviews(foodAmountLabel, foodDiscountLabel)
         sectionStackView.addArrangedSubviews(foodNameLabel, foodDescriptionLabel, amountStackView)
         
@@ -132,11 +137,16 @@ private extension TotalFoodCell {
             make.height.equalTo(72)
         }
         
-        eventStackView.snp.makeConstraints { make in
-            make.top.equalTo(sectionStackView.snp.bottom).offset(12)
+        eventScrollView.snp.makeConstraints { make in
             make.left.equalTo(imageView.snp.right).offset(8)
             make.right.equalToSuperview()
+            make.top.equalTo(sectionStackView.snp.bottom).offset(12)
             make.height.equalTo(24)
+        }
+        
+        eventStackView.snp.makeConstraints { make in
+            make.top.bottom.left.right.equalToSuperview()
+            make.height.equalToSuperview()
         }
     }
     
