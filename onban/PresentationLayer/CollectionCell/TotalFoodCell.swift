@@ -58,8 +58,16 @@ final class TotalFoodCell: UICollectionViewCell {
         $0.font = .systemFont(ofSize: 14, weight: .semibold)
     }
     
+    private var eventLabels = [UILabel]()
+    
     static let reuseIdentifier = "TotalFoodCell"
     private var eventCount = 0
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        self.resetEventDataForReuse()
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -150,12 +158,28 @@ private extension TotalFoodCell {
         }
     }
     
-    func configureLayouts(with width: CGFloat, for eventLabels: UILabel) {
-        eventStackView.addArrangedSubview(eventLabels)
+    func configureLayouts(with width: CGFloat, for eventLabel: UILabel) {
+        eventLabels.append(eventLabel)
+        eventStackView.addArrangedSubview(eventLabel)
         
-        eventLabels.snp.makeConstraints { make in
+        eventLabel.snp.makeConstraints { make in
             make.width.equalTo(width)
             make.height.equalToSuperview()
         }
+    }
+}
+
+// MARK: For reuse cell (remove data)
+private extension TotalFoodCell {
+    
+    // 이벤트 데이터는 다른 데이터와 달리 갈아끼우는 게 아닌, 추가 개념이라 reuse 시 데이터 혼선 발생
+    func resetEventDataForReuse() {
+        self.eventCount = 0
+        
+        eventLabels.forEach {
+            $0.removeFromSuperview()
+        }
+        
+        eventLabels.removeAll()
     }
 }

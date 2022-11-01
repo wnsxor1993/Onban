@@ -18,9 +18,13 @@ class ThirdSectionCoordinator: Coordinator {
     }
     
     func start() {
-        let sideVC = SideViewController()
+        let sideRepository: BasicRepository = ViewDefaultMainRepository(serviceKind: .sideFoodFetch)
+        let sideUsecase: ViewMainUsecase = ViewDefaultMainUsecase(repository: sideRepository)
+        let sideVM = MainViewModel(usecase: sideUsecase)
+        let sideVC = DishViewController(viewModel: sideVM)
+        
         sideVC.deleage = self
-        sideVC.view.backgroundColor = .green
+        sideVC.view.backgroundColor = .white
         sideVC.tabBarItem = UITabBarItem(title: "Side", image: nil, tag: 2)
         
         self.navigationController.setNavigationBarHidden(true, animated: false)

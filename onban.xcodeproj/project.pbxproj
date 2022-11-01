@@ -30,8 +30,6 @@
 		D2D92A2D290A5C5400D46676 /* UIView +.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A2C290A5C5400D46676 /* UIView +.swift */; };
 		D2D92A2F290A5D2300D46676 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A2E290A5D2300D46676 /* MainViewModel.swift */; };
 		D2D92A31290A681D00D46676 /* FirstSectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A30290A681D00D46676 /* FirstSectionCoordinator.swift */; };
-		D2D92A35290A6B0100D46676 /* SoupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A34290A6B0100D46676 /* SoupViewController.swift */; };
-		D2D92A39290A6B3400D46676 /* SideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A38290A6B3400D46676 /* SideViewController.swift */; };
 		D2D92A3B290A6B6800D46676 /* SecondSectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A3A290A6B6800D46676 /* SecondSectionCoordinator.swift */; };
 		D2D92A3D290A6B8E00D46676 /* ThirdSectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A3C290A6B8E00D46676 /* ThirdSectionCoordinator.swift */; };
 		D2D92A41290B5D5B00D46676 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A40290B5D5B00D46676 /* MainCoordinator.swift */; };
@@ -40,7 +38,6 @@
 		D2D92A49290B6C2700D46676 /* TotalFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A48290B6C2600D46676 /* TotalFoodCell.swift */; };
 		D2D92A4B290B736200D46676 /* String +.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A4A290B736200D46676 /* String +.swift */; };
 		D2D92A4D290B757200D46676 /* StackView +.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A4C290B757200D46676 /* StackView +.swift */; };
-		D2D92A4F290BA2BA00D46676 /* CollectionViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A4E290BA2BA00D46676 /* CollectionViewDatasource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,8 +68,6 @@
 		D2D92A2C290A5C5400D46676 /* UIView +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView +.swift"; sourceTree = "<group>"; };
 		D2D92A2E290A5D2300D46676 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		D2D92A30290A681D00D46676 /* FirstSectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSectionCoordinator.swift; sourceTree = "<group>"; };
-		D2D92A34290A6B0100D46676 /* SoupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoupViewController.swift; sourceTree = "<group>"; };
-		D2D92A38290A6B3400D46676 /* SideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideViewController.swift; sourceTree = "<group>"; };
 		D2D92A3A290A6B6800D46676 /* SecondSectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSectionCoordinator.swift; sourceTree = "<group>"; };
 		D2D92A3C290A6B8E00D46676 /* ThirdSectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdSectionCoordinator.swift; sourceTree = "<group>"; };
 		D2D92A40290B5D5B00D46676 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -81,7 +76,6 @@
 		D2D92A48290B6C2600D46676 /* TotalFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalFoodCell.swift; sourceTree = "<group>"; };
 		D2D92A4A290B736200D46676 /* String +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String +.swift"; sourceTree = "<group>"; };
 		D2D92A4C290B757200D46676 /* StackView +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView +.swift"; sourceTree = "<group>"; };
-		D2D92A4E290BA2BA00D46676 /* CollectionViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDatasource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,8 +171,6 @@
 			isa = PBXGroup;
 			children = (
 				D2D92A02290A093400D46676 /* DishViewController.swift */,
-				D2D92A34290A6B0100D46676 /* SoupViewController.swift */,
-				D2D92A38290A6B3400D46676 /* SideViewController.swift */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -217,7 +209,7 @@
 		D2D92A12290A497A00D46676 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
-				D2D92A47290B6BCF00D46676 /* CollectionData */,
+				D2D92A47290B6BCF00D46676 /* CollectionCell */,
 				D2D92A46290B6BB500D46676 /* TabBarScene */,
 			);
 			path = PresentationLayer;
@@ -331,13 +323,12 @@
 			path = TabBarScene;
 			sourceTree = "<group>";
 		};
-		D2D92A47290B6BCF00D46676 /* CollectionData */ = {
+		D2D92A47290B6BCF00D46676 /* CollectionCell */ = {
 			isa = PBXGroup;
 			children = (
-				D2D92A4E290BA2BA00D46676 /* CollectionViewDatasource.swift */,
 				D2D92A48290B6C2600D46676 /* TotalFoodCell.swift */,
 			);
-			path = CollectionData;
+			path = CollectionCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -463,14 +454,11 @@
 				D2D92A3B290A6B6800D46676 /* SecondSectionCoordinator.swift in Sources */,
 				D2D92A4B290B736200D46676 /* String +.swift in Sources */,
 				D2D92A31290A681D00D46676 /* FirstSectionCoordinator.swift in Sources */,
-				D2D92A35290A6B0100D46676 /* SoupViewController.swift in Sources */,
 				D28CEDA2290FC87800ADDD79 /* NetworkError.swift in Sources */,
 				D2D92A3D290A6B8E00D46676 /* ThirdSectionCoordinator.swift in Sources */,
 				D28CED8A290F627700ADDD79 /* OnbanFoodDTO.swift in Sources */,
-				D2D92A39290A6B3400D46676 /* SideViewController.swift in Sources */,
 				D2D92A1D290A4ABE00D46676 /* Coordinator.swift in Sources */,
 				D28CED90290F83DD00ADDD79 /* ViewMainUsecase.swift in Sources */,
-				D2D92A4F290BA2BA00D46676 /* CollectionViewDatasource.swift in Sources */,
 				D2D92A03290A093400D46676 /* DishViewController.swift in Sources */,
 				D2D929FF290A093400D46676 /* AppDelegate.swift in Sources */,
 				D28CED92290F847F00ADDD79 /* BasicUsecase.swift in Sources */,
