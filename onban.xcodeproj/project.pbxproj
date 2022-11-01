@@ -16,6 +16,10 @@
 		D28CED97290F9D4900ADDD79 /* RxSwift +.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CED96290F9D4900ADDD79 /* RxSwift +.swift */; };
 		D28CED99290FB7CD00ADDD79 /* OnbanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CED98290FB7CD00ADDD79 /* OnbanService.swift */; };
 		D28CED9B290FBD2600ADDD79 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CED9A290FBD2600ADDD79 /* NetworkProvider.swift */; };
+		D28CED9E290FC29000ADDD79 /* ViewDefaultMainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CED9D290FC29000ADDD79 /* ViewDefaultMainRepository.swift */; };
+		D28CEDA0290FC66500ADDD79 /* JSONConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CED9F290FC66500ADDD79 /* JSONConverter.swift */; };
+		D28CEDA2290FC87800ADDD79 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CEDA1290FC87800ADDD79 /* NetworkError.swift */; };
+		D28CEDA429109AE800ADDD79 /* BasicRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CEDA329109AE800ADDD79 /* BasicRepository.swift */; };
 		D2D929FF290A093400D46676 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D929FE290A093400D46676 /* AppDelegate.swift */; };
 		D2D92A01290A093400D46676 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A00290A093400D46676 /* SceneDelegate.swift */; };
 		D2D92A03290A093400D46676 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A02290A093400D46676 /* MainViewController.swift */; };
@@ -51,6 +55,10 @@
 		D28CED96290F9D4900ADDD79 /* RxSwift +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxSwift +.swift"; sourceTree = "<group>"; };
 		D28CED98290FB7CD00ADDD79 /* OnbanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbanService.swift; sourceTree = "<group>"; };
 		D28CED9A290FBD2600ADDD79 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		D28CED9D290FC29000ADDD79 /* ViewDefaultMainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDefaultMainRepository.swift; sourceTree = "<group>"; };
+		D28CED9F290FC66500ADDD79 /* JSONConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONConverter.swift; sourceTree = "<group>"; };
+		D28CEDA1290FC87800ADDD79 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		D28CEDA329109AE800ADDD79 /* BasicRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicRepository.swift; sourceTree = "<group>"; };
 		D2D929FB290A093400D46676 /* onban.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = onban.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2D929FE290A093400D46676 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2D92A00290A093400D46676 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +144,22 @@
 				D28CED94290F86A200ADDD79 /* OnbanFoodEntity.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		D28CED9C290FC1B700ADDD79 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				D28CED9D290FC29000ADDD79 /* ViewDefaultMainRepository.swift */,
+				D28CEDA729109B4200ADDD79 /* Protocol */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		D28CEDA729109B4200ADDD79 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		D2D929F2290A093400D46676 = {
@@ -228,6 +252,8 @@
 		D2D92A18290A4A2E00D46676 /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
+				D28CEDA329109AE800ADDD79 /* BasicRepository.swift */,
+				D28CED9C290FC1B700ADDD79 /* Repository */,
 				D28CED88290F625700ADDD79 /* DTO */,
 				D2D92A19290A4A3200D46676 /* Network */,
 			);
@@ -237,6 +263,7 @@
 		D2D92A19290A4A3200D46676 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				D28CEDA1290FC87800ADDD79 /* NetworkError.swift */,
 				D28CED98290FB7CD00ADDD79 /* OnbanService.swift */,
 				D28CED9A290FBD2600ADDD79 /* NetworkProvider.swift */,
 			);
@@ -246,6 +273,7 @@
 		D2D92A1A290A4A6E00D46676 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				D28CED9F290FC66500ADDD79 /* JSONConverter.swift */,
 				D2D92A2B290A5C4500D46676 /* Extension */,
 			);
 			path = Helper;
@@ -461,12 +489,14 @@
 				D2D92A4D290B757200D46676 /* StackView +.swift in Sources */,
 				D2D92A45290B665B00D46676 /* UIColor +.swift in Sources */,
 				D28CED9B290FBD2600ADDD79 /* NetworkProvider.swift in Sources */,
+				D28CEDA429109AE800ADDD79 /* BasicRepository.swift in Sources */,
 				D2D92A22290A52C800D46676 /* AppCoordinator.swift in Sources */,
 				D28CED95290F86A200ADDD79 /* OnbanFoodEntity.swift in Sources */,
 				D2D92A3B290A6B6800D46676 /* SecondSectionCoordinator.swift in Sources */,
 				D2D92A4B290B736200D46676 /* String +.swift in Sources */,
 				D2D92A31290A681D00D46676 /* FirstSectionCoordinator.swift in Sources */,
 				D2D92A35290A6B0100D46676 /* SoupVC.swift in Sources */,
+				D28CEDA2290FC87800ADDD79 /* NetworkError.swift in Sources */,
 				D2D92A3D290A6B8E00D46676 /* ThirdSectionCoordinator.swift in Sources */,
 				D28CED8A290F627700ADDD79 /* OnbanFoodDTO.swift in Sources */,
 				D2D92A39290A6B3400D46676 /* SideVC.swift in Sources */,
@@ -477,12 +507,14 @@
 				D2D929FF290A093400D46676 /* AppDelegate.swift in Sources */,
 				D28CED92290F847F00ADDD79 /* BasciUsecase.swift in Sources */,
 				D2D92A49290B6C2700D46676 /* TotalFoodCell.swift in Sources */,
+				D28CED9E290FC29000ADDD79 /* ViewDefaultMainRepository.swift in Sources */,
 				D28CED99290FB7CD00ADDD79 /* OnbanService.swift in Sources */,
 				D2D92A2D290A5C5400D46676 /* UIView +.swift in Sources */,
 				D2D92A41290B5D5B00D46676 /* MainCoordinator.swift in Sources */,
 				D28CED97290F9D4900ADDD79 /* RxSwift +.swift in Sources */,
 				D2D92A43290B5DE100D46676 /* MainTabBarVC.swift in Sources */,
 				D28CED8D290F83A400ADDD79 /* ViewDefaultMainUsecase.swift in Sources */,
+				D28CEDA0290FC66500ADDD79 /* JSONConverter.swift in Sources */,
 				D2D92A2F290A5D2300D46676 /* MainViewModel.swift in Sources */,
 				D2D92A01290A093400D46676 /* SceneDelegate.swift in Sources */,
 			);

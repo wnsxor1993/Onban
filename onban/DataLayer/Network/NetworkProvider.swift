@@ -10,7 +10,7 @@ import Moya
 
 final class NetworkProvider {
     
-    static let networkProvider = NetworkProvider()
+    static let shared = NetworkProvider()
     
     private let service = MoyaProvider<OnbanService>()
     private var result: Result<Response, MoyaError>?
