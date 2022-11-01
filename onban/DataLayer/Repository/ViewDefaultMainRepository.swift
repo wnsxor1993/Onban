@@ -9,45 +9,53 @@ import Foundation
 import RxSwift
 import Moya
 
-final class ViewDefaultMainRepository: BasicRepository {
+final class ViewDefaultMainRepository: ViewMainRepository {
     
-    typealias DTO = OnbanFoodDTO
     let networkService = NetworkProvider.shared
     
-    func requestDTO(kind: OnbanService, with disposeBag: DisposeBag) -> Observable<DTO> {
+    func requestDTO(kind: OnbanService, with disposeBag: DisposeBag) -> Observable<MainData> {
         return Observable.create { [weak self] observer -> Disposable in
-            guard let self = self, let result = self.networkService.request(with: kind) else {
-                observer.onError(NetworkError.serviceCaseError)
+            guard let self = self else {
+                observer.onError(NetworkError.nonSelfError)
                 
                 return Disposables.create()
             }
             
-            switch result {
-            case .success(let response):
-                guard response.statusCode == 200 else {
-                    observer.onError(NetworkError.statusCodeError)
+            self.networkService.request(with: kind)
+                .subscribe { result in
+                    switch result {
+                    case .success(let response):
+                        guard response.statusCode == 200 else {
+                            observer.onError(NetworkError.statusCodeError)
+                            
+                            return
+                        }
+                        
+                        let data: Data = response.data
+                        let jsonConverter = JSONConverter<MainData>()
+                        
+                        if let dto = jsonConverter.decode(data: data) {
+                            observer.onNext(dto)
+                            
+                        } else {
+                            observer.onError(NetworkError.decodingError)
+                            
+                            return
+                        }
+                        
+                    case .failure(let error):
+                        NSLog(error.localizedDescription)
+                        observer.onError(NetworkError.moyaNetworkError)
+                        
+                        return
+                    }
                     
-                    return Disposables.create()
-                }
-                
-                let data: Data = response.data
-                let jsonConverter = JSONConverter<OnbanFoodDTO>()
-                
-                if let dto = jsonConverter.decode(data: data) {
-                    observer.onNext(dto)
+                } onFailure: { error in
+                    NSLog(error.localizedDescription)
+                    observer.onError(NetworkError.serviceCaseError)
                     
-                } else {
-                    observer.onError(NetworkError.decodingError)
-                    
-                    return Disposables.create()
-                }
-                
-            case .failure(let error):
-                NSLog(error.localizedDescription)
-                observer.onError(NetworkError.moyaNetworkError)
-                
-                return Disposables.create()
-            }
+                }.disposed(by: disposeBag)
+            
             
             return Disposables.create()
         }

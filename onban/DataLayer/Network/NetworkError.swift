@@ -8,6 +8,7 @@
 import Foundation
 
 enum NetworkError: Error {
+    case nonSelfError
     case serviceCaseError
     case statusCodeError
     case moyaNetworkError

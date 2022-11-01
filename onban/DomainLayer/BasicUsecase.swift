@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import RxSwift
 
-protocol BasciUsecase {
+protocol BasicUsecase {
     
-    func execute()
+    func execute(with disposeBag: DisposeBag)
 }

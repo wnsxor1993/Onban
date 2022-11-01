@@ -18,7 +18,8 @@ class FirstSectionCoordinator: Coordinator {
     }
     
     func start() {
-        let mainUsecase: ViewMainUsecase = ViewDefaultMainUsecase()
+        let mainRepository: ViewMainRepository = ViewDefaultMainRepository()
+        let mainUsecase: ViewMainUsecase = ViewDefaultMainUsecase(repository: mainRepository)
         let mainVM = MainViewModel(usecase: mainUsecase)
         let mainVC = MainViewController(viewModel: mainVM)
         

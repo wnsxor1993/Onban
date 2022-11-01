@@ -33,7 +33,7 @@ final class MainViewModel {
             .subscribe({ [weak self] isLoaded in
                 guard let self = self else { return }
                 
-                self.usecase.execute()
+                self.usecase.execute(with: disposeBag)
             })
             .disposed(by: disposeBag)
         

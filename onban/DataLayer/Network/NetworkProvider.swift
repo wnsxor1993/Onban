@@ -7,39 +7,47 @@
 
 import Foundation
 import Moya
+import RxSwift
 
 final class NetworkProvider {
     
     static let shared = NetworkProvider()
     
     private let service = MoyaProvider<OnbanService>()
-    private var result: Result<Response, MoyaError>?
     
     private init() { }
     
-    func request(with section: OnbanService) -> Result<Response, MoyaError>? {
-        switch section {
-        case .mainFoodFetch:
-            service.request(.mainFoodFetch) { result in
-                self.result = result
+    func request(with section: OnbanService) -> Single<Result<Response, MoyaError>> {
+        return Single<Result<Response, MoyaError>>.create { [weak self] observer -> Disposable in
+            guard let self = self else {
+                observer(.failure(NetworkError.nonSelfError))
+                
+                return Disposables.create()
             }
             
-        case .soupFoodFetch:
-            service.request(.soupFoodFetch) { result in
-                self.result = result
+            switch section {
+            case .mainFoodFetch:
+                self.service.request(.mainFoodFetch) { result in
+                    observer(.success(result))
+                }
+                
+            case .soupFoodFetch:
+                self.service.request(.soupFoodFetch) { result in
+                    observer(.success(result))
+                }
+                
+            case .sideFoodFetch:
+                self.service.request(.sideFoodFetch) { result in
+                    observer(.success(result))
+                }
+                
+            case .foodDetailFetch(let foodID):
+                self.service.request(.foodDetailFetch(foodID: foodID)) { result in
+                    observer(.success(result))
+                }
             }
             
-        case .sideFoodFetch:
-            service.request(.sideFoodFetch) { result in
-                self.result = result
-            }
-            
-        case .foodDetailFetch(let foodID):
-            service.request(.foodDetailFetch(foodID: foodID)) { result in
-                self.result = result
-            }
+            return Disposables.create()
         }
-        
-        return self.result
     }
 }

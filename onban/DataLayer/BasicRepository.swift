@@ -6,12 +6,8 @@
 //
 
 import Foundation
-import RxSwift
 
 protocol BasicRepository {
     
-    associatedtype DTO
     var networkService: NetworkProvider { get }
-    
-    func requestDTO(kind: OnbanService, with disposeBag: DisposeBag) -> Observable<DTO>
 }

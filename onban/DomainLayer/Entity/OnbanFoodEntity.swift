@@ -12,7 +12,7 @@ struct OnbanFoodEntity: Equatable {
     let detailHash: String
     let image: Data
     let title, bodyDescription: String
-    let nPrice: String
-    let sPrice: String?
+    let nPrice: String?
+    let sPrice: String
     let badge: [String]?
 }

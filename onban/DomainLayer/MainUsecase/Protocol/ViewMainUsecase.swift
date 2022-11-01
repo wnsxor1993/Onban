@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-protocol ViewMainUsecase: BasciUsecase {
+protocol ViewMainUsecase: BasicUsecase {
     
     var foodsEntity: PublishSubject<[OnbanFoodEntity]> { get }
 }
