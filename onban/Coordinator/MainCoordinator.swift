@@ -17,7 +17,7 @@ class MainCoordinator: Coordinator {
     }
     
     func start() {
-        let tabVC = MainTabBarVC()
+        let tabVC = MainTabBarViewController()
         tabVC.coordinatorDelegate = self
         navigationController.pushViewController(tabVC, animated: false)
         

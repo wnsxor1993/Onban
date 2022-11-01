@@ -11,7 +11,7 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-final class MainViewController: UIViewController {
+final class DishViewController: UIViewController {
     
     private let sectionLabel = UILabel().then {
         $0.textColor = .sectionHeader
@@ -58,7 +58,7 @@ final class MainViewController: UIViewController {
     }
 }
 
-extension MainViewController: UICollectionViewDelegateFlowLayout {
+extension DishViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (self.view.frame.width - 32)
@@ -67,7 +67,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-private extension MainViewController {
+private extension DishViewController {
     
     func configureLayouts() {
         self.view.addSubviews(sectionLabel, onbanCollectionView)

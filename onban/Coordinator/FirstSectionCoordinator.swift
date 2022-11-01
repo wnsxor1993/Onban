@@ -21,7 +21,7 @@ class FirstSectionCoordinator: Coordinator {
         let mainRepository: ViewMainRepository = ViewDefaultMainRepository()
         let mainUsecase: ViewMainUsecase = ViewDefaultMainUsecase(repository: mainRepository)
         let mainVM = MainViewModel(usecase: mainUsecase)
-        let mainVC = MainViewController(viewModel: mainVM)
+        let mainVC = DishViewController(viewModel: mainVM)
         
         mainVC.deleage = self
         mainVC.view.backgroundColor = .white

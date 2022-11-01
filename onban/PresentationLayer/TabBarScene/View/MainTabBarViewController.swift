@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MainTabBarVC: UITabBarController {
+final class MainTabBarViewController: UITabBarController {
     
     weak var coordinatorDelegate: Coordinator?
     
@@ -18,7 +18,7 @@ final class MainTabBarVC: UITabBarController {
     }
 }
 
-private extension MainTabBarVC {
+private extension MainTabBarViewController {
     
     func configureTabBar() {
         tabBar.backgroundColor = .lightGray
