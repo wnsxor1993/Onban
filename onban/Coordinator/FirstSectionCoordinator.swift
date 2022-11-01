@@ -18,7 +18,7 @@ class FirstSectionCoordinator: Coordinator {
     }
     
     func start() {
-        let mainRepository: ViewMainRepository = ViewDefaultMainRepository()
+        let mainRepository: BasicRepository = ViewDefaultMainRepository(serviceKind: .mainFoodFetch)
         let mainUsecase: ViewMainUsecase = ViewDefaultMainUsecase(repository: mainRepository)
         let mainVM = MainViewModel(usecase: mainUsecase)
         let mainVC = DishViewController(viewModel: mainVM)

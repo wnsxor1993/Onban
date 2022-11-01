@@ -10,15 +10,15 @@ import RxSwift
 
 final class ViewDefaultMainUsecase: ViewMainUsecase {
     
-    private let repository: ViewMainRepository
+    private let repository: BasicRepository
     let foodsEntity = PublishSubject<[OnbanFoodEntity]>()
     
-    init(repository: ViewMainRepository) {
+    init(repository: BasicRepository) {
         self.repository = repository
     }
     
     func execute(with disposeBag: DisposeBag) {
-        repository.requestDTO(kind: .mainFoodFetch, with: disposeBag)
+        repository.requestDTO(with: disposeBag)
             .subscribe { [weak self] event in
                 guard let self = self else { return }
                 

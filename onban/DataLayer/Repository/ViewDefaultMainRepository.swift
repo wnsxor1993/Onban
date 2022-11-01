@@ -9,11 +9,16 @@ import Foundation
 import RxSwift
 import Moya
 
-final class ViewDefaultMainRepository: ViewMainRepository {
+final class ViewDefaultMainRepository: BasicRepository {
     
     let networkService = NetworkProvider.shared
+    let serviceKind: OnbanService
     
-    func requestDTO(kind: OnbanService, with disposeBag: DisposeBag) -> Observable<MainData> {
+    init(serviceKind: OnbanService) {
+        self.serviceKind = serviceKind
+    }
+    
+    func requestDTO(with disposeBag: DisposeBag) -> Observable<MainData> {
         return Observable.create { [weak self] observer -> Disposable in
             guard let self = self else {
                 observer.onError(NetworkError.nonSelfError)
@@ -21,7 +26,7 @@ final class ViewDefaultMainRepository: ViewMainRepository {
                 return Disposables.create()
             }
             
-            self.networkService.request(with: kind)
+            self.networkService.request(with: self.serviceKind)
                 .subscribe { result in
                     switch result {
                     case .success(let response):

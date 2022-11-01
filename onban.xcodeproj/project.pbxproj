@@ -20,7 +20,6 @@
 		D28CEDA0290FC66500ADDD79 /* JSONConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CED9F290FC66500ADDD79 /* JSONConverter.swift */; };
 		D28CEDA2290FC87800ADDD79 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CEDA1290FC87800ADDD79 /* NetworkError.swift */; };
 		D28CEDA429109AE800ADDD79 /* BasicRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CEDA329109AE800ADDD79 /* BasicRepository.swift */; };
-		D28CEDA92910AEDD00ADDD79 /* ViewMainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CEDA82910AEDD00ADDD79 /* ViewMainRepository.swift */; };
 		D2D929FF290A093400D46676 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D929FE290A093400D46676 /* AppDelegate.swift */; };
 		D2D92A01290A093400D46676 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A00290A093400D46676 /* SceneDelegate.swift */; };
 		D2D92A03290A093400D46676 /* DishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A02290A093400D46676 /* DishViewController.swift */; };
@@ -60,7 +59,6 @@
 		D28CED9F290FC66500ADDD79 /* JSONConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONConverter.swift; sourceTree = "<group>"; };
 		D28CEDA1290FC87800ADDD79 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		D28CEDA329109AE800ADDD79 /* BasicRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicRepository.swift; sourceTree = "<group>"; };
-		D28CEDA82910AEDD00ADDD79 /* ViewMainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMainRepository.swift; sourceTree = "<group>"; };
 		D2D929FB290A093400D46676 /* onban.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = onban.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2D929FE290A093400D46676 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2D92A00290A093400D46676 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -162,7 +160,6 @@
 			isa = PBXGroup;
 			children = (
 				D28CEDA329109AE800ADDD79 /* BasicRepository.swift */,
-				D28CEDA82910AEDD00ADDD79 /* ViewMainRepository.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -476,7 +473,6 @@
 				D2D92A4F290BA2BA00D46676 /* CollectionViewDatasource.swift in Sources */,
 				D2D92A03290A093400D46676 /* DishViewController.swift in Sources */,
 				D2D929FF290A093400D46676 /* AppDelegate.swift in Sources */,
-				D28CEDA92910AEDD00ADDD79 /* ViewMainRepository.swift in Sources */,
 				D28CED92290F847F00ADDD79 /* BasicUsecase.swift in Sources */,
 				D2D92A49290B6C2700D46676 /* TotalFoodCell.swift in Sources */,
 				D28CED9E290FC29000ADDD79 /* ViewDefaultMainRepository.swift in Sources */,
