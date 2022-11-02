@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1517767885051CCB55E09A4A /* Pods_onban.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F44B96DBCF37984DA8290FD /* Pods_onban.framework */; };
 		D27CB8B829120A0B00C3A8EF /* UIImageView +.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CB8B729120A0B00C3A8EF /* UIImageView +.swift */; };
+		D27CB8C0291255DB00C3A8EF /* FileCachedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CB8BF291255DB00C3A8EF /* FileCachedManager.swift */; };
 		D28CED8A290F627700ADDD79 /* OnbanFoodDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CED89290F627700ADDD79 /* OnbanFoodDTO.swift */; };
 		D28CED8D290F83A400ADDD79 /* ViewDefaultMainUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CED8C290F83A400ADDD79 /* ViewDefaultMainUsecase.swift */; };
 		D28CED90290F83DD00ADDD79 /* ViewMainUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CED8F290F83DD00ADDD79 /* ViewMainUsecase.swift */; };
@@ -46,6 +47,7 @@
 		9356E8767AF3709C251677B5 /* Pods-onban.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onban.debug.xcconfig"; path = "Target Support Files/Pods-onban/Pods-onban.debug.xcconfig"; sourceTree = "<group>"; };
 		A0C2773FF2FD8FE9B518CD09 /* Pods-onban.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onban.release.xcconfig"; path = "Target Support Files/Pods-onban/Pods-onban.release.xcconfig"; sourceTree = "<group>"; };
 		D27CB8B729120A0B00C3A8EF /* UIImageView +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView +.swift"; sourceTree = "<group>"; };
+		D27CB8BF291255DB00C3A8EF /* FileCachedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCachedManager.swift; sourceTree = "<group>"; };
 		D28CED89290F627700ADDD79 /* OnbanFoodDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbanFoodDTO.swift; sourceTree = "<group>"; };
 		D28CED8C290F83A400ADDD79 /* ViewDefaultMainUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDefaultMainUsecase.swift; sourceTree = "<group>"; };
 		D28CED8F290F83DD00ADDD79 /* ViewMainUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMainUsecase.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				D28CED9F290FC66500ADDD79 /* JSONConverter.swift */,
+				D27CB8BF291255DB00C3A8EF /* FileCachedManager.swift */,
 				D2D92A2B290A5C4500D46676 /* Extension */,
 			);
 			path = Helper;
@@ -475,6 +478,7 @@
 				D2D92A43290B5DE100D46676 /* MainTabBarViewController.swift in Sources */,
 				D28CED8D290F83A400ADDD79 /* ViewDefaultMainUsecase.swift in Sources */,
 				D28CEDA0290FC66500ADDD79 /* JSONConverter.swift in Sources */,
+				D27CB8C0291255DB00C3A8EF /* FileCachedManager.swift in Sources */,
 				D2D92A2F290A5D2300D46676 /* MainViewModel.swift in Sources */,
 				D2D92A01290A093400D46676 /* SceneDelegate.swift in Sources */,
 			);

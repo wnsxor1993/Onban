@@ -90,8 +90,14 @@ final class TotalFoodCell: UICollectionViewCell {
         self.foodDiscountLabel.attributedText = discount.strikeThrough()
     }
     
-    func setFoodImage(urlString: String) {
-        self.imageView.load(with: urlString)
+    func setFoodImage(imageData: Data?, urlString: String) {
+        guard let data = imageData else {
+            self.imageView.load(with: urlString)
+            
+            return
+        }
+        
+        self.imageView.image = UIImage(data: data)
     }
     
     func setEventLabel(_ event: String) {

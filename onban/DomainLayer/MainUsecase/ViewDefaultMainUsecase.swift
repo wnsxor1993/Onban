@@ -33,8 +33,18 @@ private extension ViewDefaultMainUsecase {
         var foodEntities = [OnbanFoodEntity]()
         
         onbanDTO.forEach {
-            let entity = OnbanFoodEntity(detailHash: $0.detailHash, image: $0.image, title: $0.title, bodyDescription: $0.bodyDescription, nPrice: $0.nPrice, sPrice: $0.sPrice, badge: $0.badge)
-            foodEntities.append(entity)
+            guard let url = URL(string: $0.image) else { return }
+            
+            if let imageData = FileCachedManager.loadData(validURL: url) {
+                let entity = OnbanFoodEntity(detailHash: $0.detailHash, imageURLString: $0.image, image: imageData, title: $0.title, bodyDescription: $0.bodyDescription, nPrice: $0.nPrice, sPrice: $0.sPrice, badge: $0.badge)
+                foodEntities.append(entity)
+                
+            } else {
+                FileCachedManager.saveData(urlString: $0.image)
+                
+                let entity = OnbanFoodEntity(detailHash: $0.detailHash, imageURLString: $0.image, image: nil, title: $0.title, bodyDescription: $0.bodyDescription, nPrice: $0.nPrice, sPrice: $0.sPrice, badge: $0.badge)
+                foodEntities.append(entity)
+            }
         }
         
         self.foodsEntity.onNext(foodEntities)

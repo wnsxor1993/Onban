@@ -10,7 +10,8 @@ import Foundation
 struct OnbanFoodEntity: Equatable {
     
     let detailHash: String
-    let image: String
+    let imageURLString: String
+    let image: Data?
     let title, bodyDescription: String
     let nPrice: String?
     let sPrice: String
