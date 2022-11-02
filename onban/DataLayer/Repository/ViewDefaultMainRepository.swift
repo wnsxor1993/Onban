@@ -27,39 +27,21 @@ final class ViewDefaultMainRepository: BasicRepository {
             }
             
             self.networkService.request(with: self.serviceKind)
-                .subscribe { result in
-                    switch result {
-                    case .success(let response):
-                        guard response.statusCode == 200 else {
-                            observer.onError(NetworkError.statusCodeError)
-                            
-                            return
-                        }
-                        
-                        let data: Data = response.data
-                        let jsonConverter = JSONConverter<MainData>()
-                        
-                        if let dto = jsonConverter.decode(data: data) {
-                            observer.onNext(dto)
-                            
-                        } else {
-                            observer.onError(NetworkError.decodingError)
-                            
-                            return
-                        }
-                        
-                    case .failure(let error):
-                        NSLog(error.localizedDescription)
-                        observer.onError(NetworkError.moyaNetworkError)
+                .map { JSONConverter<MainData>().decode(data: $0) }
+                .subscribe { dto in
+                    guard let dto = dto else {
+                        observer.onError(NetworkError.decodingError)
                         
                         return
                     }
                     
+                    observer.onNext(dto)
+                    
                 } onFailure: { error in
                     NSLog(error.localizedDescription)
                     observer.onError(NetworkError.serviceCaseError)
-                    
-                }.disposed(by: disposeBag)
+                }
+                .disposed(by: disposeBag)
             
             
             return Disposables.create()

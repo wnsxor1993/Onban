@@ -66,7 +66,7 @@ final class TotalFoodCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        self.resetEventDataForReuse()
+        self.resetDataForReuse()
     }
     
     override init(frame: CGRect) {
@@ -80,8 +80,7 @@ final class TotalFoodCell: UICollectionViewCell {
         fatalError("This class does not support NSCoder")
     }
     
-    func setFoodValues(image: UIImage?, title: String, description: String, amount: String, discount: String?) {
-        self.imageView.image = image
+    func setFoodValues(title: String, description: String, amount: String, discount: String?) {
         self.foodNameLabel.text = title
         self.foodDescriptionLabel.text = description
         self.foodAmountLabel.text = amount
@@ -89,6 +88,10 @@ final class TotalFoodCell: UICollectionViewCell {
         guard let discount = discount else { return }
         
         self.foodDiscountLabel.attributedText = discount.strikeThrough()
+    }
+    
+    func setFoodImage(urlString: String) {
+        self.imageView.load(with: urlString)
     }
     
     func setEventLabel(_ event: String) {
@@ -173,7 +176,8 @@ private extension TotalFoodCell {
 private extension TotalFoodCell {
     
     // 이벤트 데이터는 다른 데이터와 달리 갈아끼우는 게 아닌, 추가 개념이라 reuse 시 데이터 혼선 발생
-    func resetEventDataForReuse() {
+    // 이미지는 갈아끼우는 데 시간이 걸려서 마치 바뀌는 느낌으로 reuse 되어 추가
+    func resetDataForReuse() {
         self.eventCount = 0
         
         eventLabels.forEach {
@@ -181,5 +185,7 @@ private extension TotalFoodCell {
         }
         
         eventLabels.removeAll()
+        
+        self.imageView.image = nil
     }
 }

@@ -97,9 +97,8 @@ private extension DishViewController {
         self.output.onbanFoodData
             .bind(to: onbanCollectionView.rx
                 .items(cellIdentifier: TotalFoodCell.reuseIdentifier, cellType: TotalFoodCell.self)) { index, value, cell in
-                    let image = UIImage(data: value.image)
-                    
-                    cell.setFoodValues(image: image, title: value.title, description: value.bodyDescription, amount: value.sPrice, discount: value.nPrice)
+                    cell.setFoodValues(title: value.title, description: value.bodyDescription, amount: value.sPrice, discount: value.nPrice)
+                    cell.setFoodImage(urlString: value.image)
                     
                     guard let badges = value.badge, cell.checkNowEventBadgeCounts() != badges.count else { return }
                     

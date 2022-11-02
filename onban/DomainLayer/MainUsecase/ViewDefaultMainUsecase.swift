@@ -19,19 +19,9 @@ final class ViewDefaultMainUsecase: ViewMainUsecase {
     
     func execute(with disposeBag: DisposeBag) {
         repository.requestDTO(with: disposeBag)
-            .subscribe { [weak self] event in
-                guard let self = self else { return }
-                
-                switch event {
-                case .next(let dto):
-                    self.foodsEntity.onNext(self.convertToEntity(from: dto.body))
-                    
-                case .error(let error):
-                    NSLog(error.localizedDescription)
-                    
-                case .completed:
-                    NSLog("Main Food Data is fetced all - clear")
-                }
+            .map { $0.body }
+            .subscribe { [weak self] dto in
+                self?.convertToEntity(from: dto)
             }
             .disposed(by: disposeBag)
     }
@@ -39,16 +29,14 @@ final class ViewDefaultMainUsecase: ViewMainUsecase {
 
 private extension ViewDefaultMainUsecase {
     
-    func convertToEntity(from onbanDTO: [OnbanFoodDTO]) -> [OnbanFoodEntity] {
+    func convertToEntity(from onbanDTO: [OnbanFoodDTO]) {
         var foodEntities = [OnbanFoodEntity]()
         
         onbanDTO.forEach {
-            guard let url = URL(string: $0.image), let data = try? Data(contentsOf: url) else { return }
-            
-            let entity = OnbanFoodEntity(detailHash: $0.detailHash, image: data, title: $0.title, bodyDescription: $0.bodyDescription, nPrice: $0.nPrice, sPrice: $0.sPrice, badge: $0.badge)
+            let entity = OnbanFoodEntity(detailHash: $0.detailHash, image: $0.image, title: $0.title, bodyDescription: $0.bodyDescription, nPrice: $0.nPrice, sPrice: $0.sPrice, badge: $0.badge)
             foodEntities.append(entity)
         }
         
-        return foodEntities
+        self.foodsEntity.onNext(foodEntities)
     }
 }
