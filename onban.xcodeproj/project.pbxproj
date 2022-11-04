@@ -10,6 +10,10 @@
 		1517767885051CCB55E09A4A /* Pods_onban.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F44B96DBCF37984DA8290FD /* Pods_onban.framework */; };
 		D27CB8B829120A0B00C3A8EF /* UIImageView +.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CB8B729120A0B00C3A8EF /* UIImageView +.swift */; };
 		D27CB8C0291255DB00C3A8EF /* FileCachedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CB8BF291255DB00C3A8EF /* FileCachedManager.swift */; };
+		D27CB8C32913ADA400C3A8EF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CB8C22913ADA400C3A8EF /* DetailViewController.swift */; };
+		D27CB8C6291494E100C3A8EF /* DetailMainImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CB8C5291494E100C3A8EF /* DetailMainImageCell.swift */; };
+		D27CB8C82914968D00C3A8EF /* DetailTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CB8C72914968D00C3A8EF /* DetailTextView.swift */; };
+		D27CB8CB2914976F00C3A8EF /* DetailTextMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CB8CA2914976F00C3A8EF /* DetailTextMainView.swift */; };
 		D28CED8A290F627700ADDD79 /* OnbanFoodDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CED89290F627700ADDD79 /* OnbanFoodDTO.swift */; };
 		D28CED8D290F83A400ADDD79 /* ViewDefaultMainUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CED8C290F83A400ADDD79 /* ViewDefaultMainUsecase.swift */; };
 		D28CED90290F83DD00ADDD79 /* ViewMainUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CED8F290F83DD00ADDD79 /* ViewMainUsecase.swift */; };
@@ -48,6 +52,10 @@
 		A0C2773FF2FD8FE9B518CD09 /* Pods-onban.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onban.release.xcconfig"; path = "Target Support Files/Pods-onban/Pods-onban.release.xcconfig"; sourceTree = "<group>"; };
 		D27CB8B729120A0B00C3A8EF /* UIImageView +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView +.swift"; sourceTree = "<group>"; };
 		D27CB8BF291255DB00C3A8EF /* FileCachedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCachedManager.swift; sourceTree = "<group>"; };
+		D27CB8C22913ADA400C3A8EF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		D27CB8C5291494E100C3A8EF /* DetailMainImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMainImageCell.swift; sourceTree = "<group>"; };
+		D27CB8C72914968D00C3A8EF /* DetailTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTextView.swift; sourceTree = "<group>"; };
+		D27CB8CA2914976F00C3A8EF /* DetailTextMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTextMainView.swift; sourceTree = "<group>"; };
 		D28CED89290F627700ADDD79 /* OnbanFoodDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbanFoodDTO.swift; sourceTree = "<group>"; };
 		D28CED8C290F83A400ADDD79 /* ViewDefaultMainUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDefaultMainUsecase.swift; sourceTree = "<group>"; };
 		D28CED8F290F83DD00ADDD79 /* ViewMainUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMainUsecase.swift; sourceTree = "<group>"; };
@@ -109,6 +117,32 @@
 				A0C2773FF2FD8FE9B518CD09 /* Pods-onban.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D27CB8C12913AD7D00C3A8EF /* DetailScene */ = {
+			isa = PBXGroup;
+			children = (
+				D27CB8C42913ADA700C3A8EF /* View */,
+			);
+			path = DetailScene;
+			sourceTree = "<group>";
+		};
+		D27CB8C42913ADA700C3A8EF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D27CB8C22913ADA400C3A8EF /* DetailViewController.swift */,
+				D27CB8C92914969300C3A8EF /* InnerView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D27CB8C92914969300C3A8EF /* InnerView */ = {
+			isa = PBXGroup;
+			children = (
+				D27CB8C72914968D00C3A8EF /* DetailTextView.swift */,
+				D27CB8CA2914976F00C3A8EF /* DetailTextMainView.swift */,
+			);
+			path = InnerView;
 			sourceTree = "<group>";
 		};
 		D28CED88290F625700ADDD79 /* DTO */ = {
@@ -215,6 +249,7 @@
 			children = (
 				D2D92A47290B6BCF00D46676 /* CollectionCell */,
 				D2D92A46290B6BB500D46676 /* TabBarScene */,
+				D27CB8C12913AD7D00C3A8EF /* DetailScene */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -333,6 +368,7 @@
 			isa = PBXGroup;
 			children = (
 				D2D92A48290B6C2600D46676 /* TotalFoodCell.swift */,
+				D27CB8C5291494E100C3A8EF /* DetailMainImageCell.swift */,
 			);
 			path = CollectionCell;
 			sourceTree = "<group>";
@@ -466,11 +502,15 @@
 				D2D92A1D290A4ABE00D46676 /* Coordinator.swift in Sources */,
 				D28CED90290F83DD00ADDD79 /* ViewMainUsecase.swift in Sources */,
 				D2D92A03290A093400D46676 /* DishViewController.swift in Sources */,
+				D27CB8C6291494E100C3A8EF /* DetailMainImageCell.swift in Sources */,
+				D27CB8C82914968D00C3A8EF /* DetailTextView.swift in Sources */,
 				D27CB8B829120A0B00C3A8EF /* UIImageView +.swift in Sources */,
 				D2D929FF290A093400D46676 /* AppDelegate.swift in Sources */,
 				D28CED92290F847F00ADDD79 /* BasicUsecase.swift in Sources */,
 				D2D92A49290B6C2700D46676 /* TotalFoodCell.swift in Sources */,
+				D27CB8C32913ADA400C3A8EF /* DetailViewController.swift in Sources */,
 				D28CED9E290FC29000ADDD79 /* ViewDefaultMainRepository.swift in Sources */,
+				D27CB8CB2914976F00C3A8EF /* DetailTextMainView.swift in Sources */,
 				D28CED99290FB7CD00ADDD79 /* OnbanService.swift in Sources */,
 				D2D92A2D290A5C5400D46676 /* UIView +.swift in Sources */,
 				D2D92A41290B5D5B00D46676 /* MainCoordinator.swift in Sources */,
