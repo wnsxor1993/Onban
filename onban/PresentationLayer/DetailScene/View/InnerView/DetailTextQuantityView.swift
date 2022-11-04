@@ -41,7 +41,7 @@ final class DetailTextQuantityView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setStepperValue() -> Driver<Int> {
+    func setStepperValueDriver() -> Driver<Int> {
         
         return quantityStepper.rx.value
             .map { Int($0) }

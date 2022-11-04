@@ -18,6 +18,7 @@
 		D27CB8D02914A46400C3A8EF /* DetailTextDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CB8CF2914A46400C3A8EF /* DetailTextDescriptionView.swift */; };
 		D27CB8D22914AC3800C3A8EF /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CB8D12914AC3800C3A8EF /* LineView.swift */; };
 		D27CB8D42914AE5A00C3A8EF /* DetailTextQuantityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CB8D32914AE5A00C3A8EF /* DetailTextQuantityView.swift */; };
+		D27CB8D62914C91800C3A8EF /* DetailTextTotalAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CB8D52914C91800C3A8EF /* DetailTextTotalAmountView.swift */; };
 		D28CED8A290F627700ADDD79 /* OnbanFoodDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CED89290F627700ADDD79 /* OnbanFoodDTO.swift */; };
 		D28CED8D290F83A400ADDD79 /* ViewDefaultMainUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CED8C290F83A400ADDD79 /* ViewDefaultMainUsecase.swift */; };
 		D28CED90290F83DD00ADDD79 /* ViewMainUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CED8F290F83DD00ADDD79 /* ViewMainUsecase.swift */; };
@@ -64,6 +65,7 @@
 		D27CB8CF2914A46400C3A8EF /* DetailTextDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTextDescriptionView.swift; sourceTree = "<group>"; };
 		D27CB8D12914AC3800C3A8EF /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		D27CB8D32914AE5A00C3A8EF /* DetailTextQuantityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTextQuantityView.swift; sourceTree = "<group>"; };
+		D27CB8D52914C91800C3A8EF /* DetailTextTotalAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTextTotalAmountView.swift; sourceTree = "<group>"; };
 		D28CED89290F627700ADDD79 /* OnbanFoodDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbanFoodDTO.swift; sourceTree = "<group>"; };
 		D28CED8C290F83A400ADDD79 /* ViewDefaultMainUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDefaultMainUsecase.swift; sourceTree = "<group>"; };
 		D28CED8F290F83DD00ADDD79 /* ViewMainUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMainUsecase.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				D27CB8CA2914976F00C3A8EF /* DetailTextMainView.swift */,
 				D27CB8CF2914A46400C3A8EF /* DetailTextDescriptionView.swift */,
 				D27CB8D32914AE5A00C3A8EF /* DetailTextQuantityView.swift */,
+				D27CB8D52914C91800C3A8EF /* DetailTextTotalAmountView.swift */,
 			);
 			path = InnerView;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				D2D929FF290A093400D46676 /* AppDelegate.swift in Sources */,
 				D28CED92290F847F00ADDD79 /* BasicUsecase.swift in Sources */,
 				D2D92A49290B6C2700D46676 /* TotalFoodCell.swift in Sources */,
+				D27CB8D62914C91800C3A8EF /* DetailTextTotalAmountView.swift in Sources */,
 				D27CB8C32913ADA400C3A8EF /* DetailViewController.swift in Sources */,
 				D28CED9E290FC29000ADDD79 /* ViewDefaultMainRepository.swift in Sources */,
 				D27CB8CB2914976F00C3A8EF /* DetailTextMainView.swift in Sources */,
