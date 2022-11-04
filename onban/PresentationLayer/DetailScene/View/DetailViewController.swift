@@ -37,10 +37,45 @@ final class DetailViewController: UIViewController {
     
     private var descriptionImageTableView = UITableView().then {
         $0.register(DetailDescriptionImageCell.self, forCellReuseIdentifier: DetailDescriptionImageCell.reuseIdentifier)
+        $0.isScrollEnabled = false
         $0.showsVerticalScrollIndicator = false
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.configureLayouts()
+    }
+}
+
+private extension DetailViewController {
+    
+    func configureLayouts() {
+        self.view.addSubview(scrollView)
+        self.scrollView.addSubview(verticalStackView)
+        self.verticalStackView.addArrangedSubviews(mainImageCollectionView, detailTextView, descriptionImageTableView)
+        
+        scrollView.snp.makeConstraints { make in
+            make.top.bottom.leading.trailing.equalToSuperview()
+        }
+        
+        verticalStackView.snp.makeConstraints { make in
+            make.top.bottom.leading.trailing.equalToSuperview()
+        }
+        
+        mainImageCollectionView.snp.makeConstraints { make in
+            make.width.equalToSuperview()
+            make.height.equalTo(verticalStackView.snp.width)
+        }
+        
+        detailTextView.snp.makeConstraints { make in
+            make.width.equalToSuperview()
+            make.height.equalTo(625)
+        }
+        
+        descriptionImageTableView.snp.makeConstraints { make in
+            make.width.equalToSuperview()
+            make.height.greaterThanOrEqualTo(1000)
+        }
     }
 }
