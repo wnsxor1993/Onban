@@ -17,7 +17,6 @@ final class DishViewController: UIViewController {
         $0.textColor = .sectionHeader
         $0.numberOfLines = 2
         $0.font = .systemFont(ofSize: 32, weight: .regular)
-        $0.text = "모두가 좋아하는\n든든한 메인 요리"
     }
     
     private lazy var onbanCollectionView = UICollectionView(frame: .zero, collectionViewLayout: .init()).then {
@@ -46,6 +45,12 @@ final class DishViewController: UIViewController {
         self.configureFoodData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.configureSectionTitle()
+    }
+    
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
         
@@ -68,6 +73,22 @@ extension DishViewController: UICollectionViewDelegateFlowLayout {
 }
 
 private extension DishViewController {
+    
+    func configureSectionTitle() {
+        switch self.tabBarItem.tag {
+        case 0:
+            self.sectionLabel.text = "모두가 좋아하는\n든든한 메인 요리"
+            
+        case 1:
+            self.sectionLabel.text = "정성이 담긴\n뜨끈뜨끈 국물 요리"
+            
+        case 2:
+            self.sectionLabel.text = "식탁을 풍성하게 하는\n정갈한 밑반찬"
+            
+        default:
+            return
+        }
+    }
     
     func configureLayouts() {
         self.view.addSubviews(sectionLabel, onbanCollectionView)
