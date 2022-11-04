@@ -35,6 +35,11 @@ final class DetailViewController: UIViewController {
     
     private var detailTextView = DetailTextView()
     
+    private var descriptionImageTableView = UITableView().then {
+        $0.register(DetailDescriptionImageCell.self, forCellReuseIdentifier: DetailDescriptionImageCell.reuseIdentifier)
+        $0.showsVerticalScrollIndicator = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
