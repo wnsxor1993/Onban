@@ -11,6 +11,7 @@ import SnapKit
 
 final class DetailTextView: UIView {
     
+    private let lineViews = Array(repeating: LineView(), count: 3)
     private var textMainView = DetailTextMainView()
     private var textDescriptionView = DetailTextDescriptionView()
     
@@ -30,6 +31,9 @@ private extension DetailTextView {
     
     func configureLayouts() {
         self.addSubviews(textMainView, textDescriptionView)
+        lineViews.forEach {
+            self.addSubview($0)
+        }
         
         textMainView.snp.makeConstraints { make in
             make.leading.trailing.top.equalToSuperview()
@@ -38,7 +42,7 @@ private extension DetailTextView {
         
         textDescriptionView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.top.equalTo(textMainView.snp.bottom)
+            make.top.equalTo(lineViews[0].snp.bottom)
             make.height.equalTo(152)
         }
     }
