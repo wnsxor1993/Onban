@@ -21,7 +21,7 @@ class SecondSectionCoordinator: Coordinator {
         let soupRepository: BasicRepository = ViewDefaultMainRepository(serviceKind: .soupFoodFetch)
         let soupUsecase: ViewMainUsecase = ViewDefaultMainUsecase(repository: soupRepository)
         let soupVM = MainViewModel(usecase: soupUsecase)
-        let soupVC = DishViewController(viewModel: soupVM)
+        let soupVC = MainViewController(viewModel: soupVM)
         
         soupVC.deleage = self
         soupVC.view.backgroundColor = .white

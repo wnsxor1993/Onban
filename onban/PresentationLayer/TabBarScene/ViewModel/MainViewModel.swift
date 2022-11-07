@@ -5,28 +5,27 @@
 //  Created by Zeto on 2022/10/27.
 //
 
-import Foundation
 import RxSwift
 import RxCocoa
 
 final class MainViewModel {
     
-    struct CollectionViewInput {
+    struct Input {
         let defaultShowingDataEvent: Observable<Bool>
     }
     
-    struct CollectionViewOutput {
+    struct Output {
         let onbanFoodData = PublishSubject<[OnbanFoodEntity]>()
     }
     
     private let usecase: ViewMainUsecase
-    private let output = CollectionViewOutput()
+    private let output = Output()
     
     init(usecase: ViewMainUsecase) {
         self.usecase = usecase
     }
     
-    func transform(input: CollectionViewInput, disposeBag: DisposeBag) -> CollectionViewOutput {
+    func transform(input: Input, disposeBag: DisposeBag) -> Output {
         self.configureBindingWithUsecase(disposeBag: disposeBag)
         
         input.defaultShowingDataEvent

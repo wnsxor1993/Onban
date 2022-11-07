@@ -36,7 +36,7 @@
 		D28CEDA429109AE800ADDD79 /* BasicRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CEDA329109AE800ADDD79 /* BasicRepository.swift */; };
 		D2D929FF290A093400D46676 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D929FE290A093400D46676 /* AppDelegate.swift */; };
 		D2D92A01290A093400D46676 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A00290A093400D46676 /* SceneDelegate.swift */; };
-		D2D92A03290A093400D46676 /* DishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A02290A093400D46676 /* DishViewController.swift */; };
+		D2D92A03290A093400D46676 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A02290A093400D46676 /* MainViewController.swift */; };
 		D2D92A08290A093500D46676 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2D92A07290A093500D46676 /* Assets.xcassets */; };
 		D2D92A0B290A093500D46676 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2D92A09290A093500D46676 /* LaunchScreen.storyboard */; };
 		D2D92A1D290A4ABE00D46676 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A1C290A4ABE00D46676 /* Coordinator.swift */; };
@@ -52,6 +52,8 @@
 		D2D92A49290B6C2700D46676 /* TotalFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A48290B6C2600D46676 /* TotalFoodCell.swift */; };
 		D2D92A4B290B736200D46676 /* String +.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A4A290B736200D46676 /* String +.swift */; };
 		D2D92A4D290B757200D46676 /* StackView +.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A4C290B757200D46676 /* StackView +.swift */; };
+		D2E18CFE2918A00D0031C425 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E18CFD2918A00D0031C425 /* DetailViewModel.swift */; };
+		D2E18D002918BFBC0031C425 /* ViewDefaultDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E18CFF2918BFBC0031C425 /* ViewDefaultDetailRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,7 +89,7 @@
 		D2D929FB290A093400D46676 /* onban.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = onban.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2D929FE290A093400D46676 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2D92A00290A093400D46676 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D2D92A02290A093400D46676 /* DishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishViewController.swift; sourceTree = "<group>"; };
+		D2D92A02290A093400D46676 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D2D92A07290A093500D46676 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2D92A0A290A093500D46676 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2D92A0C290A093500D46676 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -104,6 +106,8 @@
 		D2D92A48290B6C2600D46676 /* TotalFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalFoodCell.swift; sourceTree = "<group>"; };
 		D2D92A4A290B736200D46676 /* String +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String +.swift"; sourceTree = "<group>"; };
 		D2D92A4C290B757200D46676 /* StackView +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView +.swift"; sourceTree = "<group>"; };
+		D2E18CFD2918A00D0031C425 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		D2E18CFF2918BFBC0031C425 /* ViewDefaultDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDefaultDetailRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,7 @@
 		D27CB8C12913AD7D00C3A8EF /* DetailScene */ = {
 			isa = PBXGroup;
 			children = (
+				D2E18CFC29189FED0031C425 /* ViewModel */,
 				D27CB8C42913ADA700C3A8EF /* View */,
 			);
 			path = DetailScene;
@@ -220,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				D28CED9D290FC29000ADDD79 /* ViewDefaultMainRepository.swift */,
+				D2E18CFF2918BFBC0031C425 /* ViewDefaultDetailRepository.swift */,
 				D28CEDA729109B4200ADDD79 /* Protocol */,
 			);
 			path = Repository;
@@ -245,7 +251,7 @@
 		D28CEDAB2910D7C500ADDD79 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
-				D2D92A02290A093400D46676 /* DishViewController.swift */,
+				D2D92A02290A093400D46676 /* MainViewController.swift */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -413,6 +419,14 @@
 			path = CollectionCell;
 			sourceTree = "<group>";
 		};
+		D2E18CFC29189FED0031C425 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D2E18CFD2918A00D0031C425 /* DetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -529,6 +543,7 @@
 			files = (
 				D2D92A4D290B757200D46676 /* StackView +.swift in Sources */,
 				D2D92A45290B665B00D46676 /* UIColor +.swift in Sources */,
+				D2E18CFE2918A00D0031C425 /* DetailViewModel.swift in Sources */,
 				D28CED9B290FBD2600ADDD79 /* NetworkProvider.swift in Sources */,
 				D28CEDA429109AE800ADDD79 /* BasicRepository.swift in Sources */,
 				D2D92A22290A52C800D46676 /* AppCoordinator.swift in Sources */,
@@ -539,13 +554,14 @@
 				D2D92A4B290B736200D46676 /* String +.swift in Sources */,
 				D27CB8D22914AC3800C3A8EF /* LineView.swift in Sources */,
 				D2D92A31290A681D00D46676 /* FirstSectionCoordinator.swift in Sources */,
+				D2E18D002918BFBC0031C425 /* ViewDefaultDetailRepository.swift in Sources */,
 				D28CEDA2290FC87800ADDD79 /* NetworkError.swift in Sources */,
 				D2D92A3D290A6B8E00D46676 /* ThirdSectionCoordinator.swift in Sources */,
 				D27CB8CE2914A0CC00C3A8EF /* EventLabel.swift in Sources */,
 				D28CED8A290F627700ADDD79 /* OnbanFoodDTO.swift in Sources */,
 				D2D92A1D290A4ABE00D46676 /* Coordinator.swift in Sources */,
 				D28CED90290F83DD00ADDD79 /* ViewMainUsecase.swift in Sources */,
-				D2D92A03290A093400D46676 /* DishViewController.swift in Sources */,
+				D2D92A03290A093400D46676 /* MainViewController.swift in Sources */,
 				D27CB8C6291494E100C3A8EF /* DetailMainImageCell.swift in Sources */,
 				D27CB8DD2914E5CE00C3A8EF /* OnbanDetailDTO.swift in Sources */,
 				D27CB8C82914968D00C3A8EF /* DetailTextView.swift in Sources */,

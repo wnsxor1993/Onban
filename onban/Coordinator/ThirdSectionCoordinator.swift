@@ -21,7 +21,7 @@ class ThirdSectionCoordinator: Coordinator {
         let sideRepository: BasicRepository = ViewDefaultMainRepository(serviceKind: .sideFoodFetch)
         let sideUsecase: ViewMainUsecase = ViewDefaultMainUsecase(repository: sideRepository)
         let sideVM = MainViewModel(usecase: sideUsecase)
-        let sideVC = DishViewController(viewModel: sideVM)
+        let sideVC = MainViewController(viewModel: sideVM)
         
         sideVC.deleage = self
         sideVC.view.backgroundColor = .white

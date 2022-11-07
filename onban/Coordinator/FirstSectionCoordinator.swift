@@ -21,7 +21,7 @@ class FirstSectionCoordinator: Coordinator, DetailNavigateDelegate {
         let mainRepository: BasicRepository = ViewDefaultMainRepository(serviceKind: .mainFoodFetch)
         let mainUsecase: ViewMainUsecase = ViewDefaultMainUsecase(repository: mainRepository)
         let mainVM = MainViewModel(usecase: mainUsecase)
-        let mainVC = DishViewController(viewModel: mainVM)
+        let mainVC = MainViewController(viewModel: mainVM)
         
         mainVC.deleage = self
         mainVC.detailNavigationDelegate = self

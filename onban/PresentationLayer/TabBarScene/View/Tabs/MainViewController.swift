@@ -11,7 +11,7 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-final class DishViewController: UIViewController {
+final class MainViewController: UIViewController {
     
     private let sectionLabel = UILabel().then {
         $0.textColor = .sectionHeader
@@ -35,7 +35,7 @@ final class DishViewController: UIViewController {
     
     private var viewModel: MainViewModel
     private let disposeBag = DisposeBag()
-    private lazy var input = MainViewModel.CollectionViewInput(defaultShowingDataEvent: self.rx.viewWillAppear)
+    private lazy var input = MainViewModel.Input(defaultShowingDataEvent: self.rx.viewWillAppear)
     private lazy var output = self.viewModel.transform(input: input, disposeBag: self.disposeBag)
     
     
@@ -64,7 +64,7 @@ final class DishViewController: UIViewController {
     }
 }
 
-extension DishViewController: UICollectionViewDelegateFlowLayout {
+extension MainViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (self.view.frame.width - 32)
@@ -73,7 +73,7 @@ extension DishViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-private extension DishViewController {
+private extension MainViewController {
     
     func configureSectionTitle() {
         switch self.tabBarItem.tag {
