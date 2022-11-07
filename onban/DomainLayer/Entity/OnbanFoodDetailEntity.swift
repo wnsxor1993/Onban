@@ -9,9 +9,7 @@ import Foundation
 
 struct OnbanFoodDetailEntity: Equatable {
     
-    let thumbImageURLStrings: [String]
-    let thumbImages: [Data]?
+    let thumbImageURLStrings, detailImageURLStrings: [String]
+    var thumbImages, detailImages: [Data]?
     let point, deliveryInfo, deliveryFee: String
-    let detailImageURLStrings: [String]
-    let detailImages: [Data]?
 }
