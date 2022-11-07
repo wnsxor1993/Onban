@@ -26,7 +26,6 @@ class FirstSectionCoordinator: Coordinator, DetailNavigateDelegate {
         mainVC.deleage = self
         mainVC.detailNavigationDelegate = self
         mainVC.view.backgroundColor = .white
-        mainVC.tabBarItem = UITabBarItem(title: "Main", image: nil, tag: 0)
         
         self.navigationController.setNavigationBarHidden(true, animated: false)
         self.navigationController.pushViewController(mainVC, animated: false)

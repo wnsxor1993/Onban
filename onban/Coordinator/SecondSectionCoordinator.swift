@@ -25,7 +25,6 @@ class SecondSectionCoordinator: Coordinator {
         
         soupVC.deleage = self
         soupVC.view.backgroundColor = .white
-        soupVC.tabBarItem = UITabBarItem(title: "Soup", image: nil, tag: 1)
         
         self.navigationController.setNavigationBarHidden(true, animated: false)
         self.navigationController.pushViewController(soupVC, animated: false)

@@ -25,7 +25,6 @@ class ThirdSectionCoordinator: Coordinator {
         
         sideVC.deleage = self
         sideVC.view.backgroundColor = .white
-        sideVC.tabBarItem = UITabBarItem(title: "Side", image: nil, tag: 2)
         
         self.navigationController.setNavigationBarHidden(true, animated: false)
         self.navigationController.pushViewController(sideVC, animated: false)
