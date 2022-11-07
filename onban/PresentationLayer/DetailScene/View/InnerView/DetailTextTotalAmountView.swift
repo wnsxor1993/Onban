@@ -30,7 +30,7 @@ final class DetailTextTotalAmountView: UIView {
         $0.setTitleColor(UIColor.white, for: .normal)
         $0.titleLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
         
-        $0.backgroundColor = .blue
+        $0.backgroundColor = .orderButton
         $0.layer.cornerRadius = 20
     }
     

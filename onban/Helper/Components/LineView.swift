@@ -20,21 +20,12 @@ final class LineView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func setLayout(topView: UIView) {
-        self.snp.makeConstraints { make in
-            make.height.equalTo(1)
-            make.top.equalTo(topView.snp.bottom)
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
-        }
-    }
 }
 
 private extension LineView {
     
     func configureSettings() {
-        self.backgroundColor = .darkGray
+        self.backgroundColor = .lightGray
     }
 }
 

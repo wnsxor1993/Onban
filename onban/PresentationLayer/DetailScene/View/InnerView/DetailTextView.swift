@@ -12,7 +12,7 @@ import RxCocoa
 
 final class DetailTextView: UIView {
     
-    private let lineViews = Array(repeating: LineView(), count: 3)
+    private let lineViews = [LineView(), LineView(), LineView()]
     private var textMainView = DetailTextMainView()
     private var textDescriptionView = DetailTextDescriptionView()
     private var textQuantityView = DetailTextQuantityView()
@@ -59,6 +59,9 @@ private extension DetailTextView {
     
     func configureLayouts() {
         self.addSubviews(textMainView, textDescriptionView, textQuantityView, textTotalAmountView)
+        lineViews.forEach {
+            self.addSubview($0)
+        }
         
         textMainView.snp.makeConstraints { make in
             make.leading.top.trailing.equalToSuperview()
@@ -72,17 +75,40 @@ private extension DetailTextView {
         }
         
         textQuantityView.snp.makeConstraints { make in
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
             make.top.equalTo(textDescriptionView.snp.bottom)
             make.height.equalTo(76)
         }
         
         textTotalAmountView.snp.makeConstraints { make in
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
             make.top.equalTo(textQuantityView.snp.bottom)
             make.height.equalTo(194)
+        }
+        
+        for (index, view) in lineViews.enumerated() {
+            var topView = UIView()
+            
+            switch index {
+            case 0:
+                topView = textMainView
+                
+            case 1:
+                topView = textDescriptionView
+                
+            case 2:
+                topView = textQuantityView
+                
+            default:
+                break
+            }
+            
+            view.snp.makeConstraints { make in
+                make.height.equalTo(1)
+                make.leading.equalToSuperview().offset(16)
+                make.trailing.equalToSuperview().offset(-16)
+                make.top.equalTo(topView.snp.bottom)
+            }
         }
     }
 }

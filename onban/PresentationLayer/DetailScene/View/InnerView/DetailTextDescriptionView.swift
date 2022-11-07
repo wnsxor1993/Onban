@@ -76,13 +76,12 @@ private extension DetailTextDescriptionView {
             sectionStackView.addArrangedSubview(label)
         }
         
-        for num in 0...2 {
+        for _ in 0...2 {
             let label = UILabel().then {
                 $0.font = .systemFont(ofSize: 14)
             }
             
             label.textColor = .darkGray
-            label.text = nil
             descriptionLabels.append(label)
             descriptionStackView.addArrangedSubview(label)
         }

@@ -38,6 +38,7 @@ final class DetailViewController: UIViewController {
     
     private let detailHash: String
     private let foodEntityData: OnbanFoodEntity
+    private let disposeBag = DisposeBag()
     
     init(detailHash: String, foodEntity: OnbanFoodEntity) {
         self.detailHash = detailHash
@@ -92,5 +93,7 @@ private extension DetailViewController {
         
         // 임시 데이터
         detailTextView.setDescriptionData(with: "126원", deliveryInfo: "테스트 장소", deliveryFee: "2,500원")
+        
+        
     }
 }
