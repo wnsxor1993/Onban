@@ -29,7 +29,7 @@ final class MainViewModel {
         self.configureBindingWithUsecase(disposeBag: disposeBag)
         
         input.defaultShowingDataEvent
-            .subscribe({ [weak self] isLoaded in
+            .subscribe({ [weak self] _ in
                 guard let self = self else { return }
                 
                 self.usecase.execute(with: disposeBag)
