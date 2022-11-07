@@ -12,5 +12,5 @@ protocol BasicRepository {
     
     var networkService: NetworkProvider { get }
     
-    func requestDTO(with disposeBag: DisposeBag) -> Observable<MainData>
+    func requestDTO<T: Codable>(with disposeBag: DisposeBag) -> Observable<T>
 }

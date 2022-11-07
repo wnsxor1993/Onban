@@ -18,7 +18,9 @@ final class ViewDefaultMainUsecase: ViewMainUsecase {
     }
     
     func execute(with disposeBag: DisposeBag) {
-        repository.requestDTO(with: disposeBag)
+        let dtoObserver: Observable<MainData> = repository.requestDTO(with: disposeBag)
+        
+        dtoObserver
             .map { $0.body }
             .subscribe { [weak self] dto in
                 self?.convertToEntity(from: dto)
