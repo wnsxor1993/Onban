@@ -21,16 +21,17 @@ final class DetailTextTotalAmountView: UIView {
     
     private lazy var amountValueLabel = UILabel().then {
         $0.text = "0원"
+        $0.textAlignment = .right
         $0.font = .systemFont(ofSize: 32, weight: .semibold)
     }
     
     private var orderButton = UIButton().then {
         $0.setTitle("주문하기", for: .normal)
-        $0.setTitleColor(UIColor.blue, for: .normal)
+        $0.setTitleColor(UIColor.white, for: .normal)
         $0.titleLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
         
         $0.backgroundColor = .blue
-        $0.layer.cornerRadius = 10
+        $0.layer.cornerRadius = 20
     }
     
     private var defaultAmount = 0
@@ -77,7 +78,7 @@ private extension DetailTextTotalAmountView {
         
         amountValueLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(24)
-            make.top.trailing.equalToSuperview().offset(-16)
+            make.trailing.equalToSuperview().offset(-16)
             make.width.equalTo(132)
             make.height.equalTo(48)
         }

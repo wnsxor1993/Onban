@@ -19,16 +19,18 @@ final class DetailTextMainView: UIView {
     private var descriptionLabel = UILabel().then {
         $0.textColor = .lightGray
         $0.font = .systemFont(ofSize: 18)
-        $0.textAlignment = .left
+        $0.sizeToFit()
     }
     
     private var amountLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 14, weight: .semibold)
+        $0.sizeToFit()
     }
     
     private var discountLabel = UILabel().then {
         $0.textColor = .lightGray
         $0.font = .systemFont(ofSize: 14, weight: .semibold)
+        $0.sizeToFit()
     }
     
     private var eventStackView = UIStackView().then {
@@ -40,6 +42,8 @@ final class DetailTextMainView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        self.configureLayouts()
     }
     
     @available(*, unavailable)
@@ -54,7 +58,7 @@ final class DetailTextMainView: UIView {
         
         guard let discount = discount else { return }
         
-        self.descriptionLabel.attributedText = discount.strikeThrough()
+        self.discountLabel.attributedText = discount.strikeThrough()
     }
     
     func setEventLabel(_ event: String) {
@@ -92,29 +96,25 @@ private extension DetailTextMainView {
             make.top.equalToSuperview().offset(24)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
-            make.height.equalTo(48)
         }
         
         descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(8)
             make.leading.equalTo(titleLabel)
-            make.height.equalTo(24)
         }
         
         amountLabel.snp.makeConstraints { make in
             make.top.equalTo(descriptionLabel.snp.bottom).offset(8)
-            make.leading.equalTo(descriptionLabel)
-            make.height.equalTo(24)
+            make.leading.equalTo(descriptionLabel.snp.leading)
         }
         
         discountLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(amountLabel.snp.centerY)
+            make.bottom.equalTo(amountLabel.snp.bottom)
             make.leading.equalTo(amountLabel.snp.trailing).offset(8)
-            make.height.equalTo(24)
         }
         
         eventStackView.snp.makeConstraints { make in
-            make.top.equalTo(amountLabel.snp.bottom).offset(16)
+            make.top.equalTo(discountLabel.snp.bottom).offset(16)
             make.leading.equalTo(amountLabel)
             make.height.equalTo(24)
         }

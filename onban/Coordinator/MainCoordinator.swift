@@ -39,10 +39,7 @@ extension MainCoordinator {
         let mainCoordinator = FirstSectionCoordinator(mainNavigation)
         self.childCoordinators.append(mainCoordinator)
         mainCoordinator.start()
-        
-        guard let vc = mainNavigation.topViewController else { return }
-        
-        tabBarVC.addChild(vc)
+        tabBarVC.addChild(mainNavigation)
     }
     
     func configureSecondSectionCoordinator(with tabBarVC: UITabBarController) {
@@ -51,10 +48,7 @@ extension MainCoordinator {
         let soupCoordinator = SecondSectionCoordinator(soupNavigation)
         self.childCoordinators.append(soupCoordinator)
         soupCoordinator.start()
-        
-        guard let vc = soupNavigation.topViewController else { return }
-        
-        tabBarVC.addChild(vc)
+        tabBarVC.addChild(soupNavigation)
     }
     
     func configureThirdSectionCoordinator(with tabBarVC: UITabBarController) {
@@ -63,9 +57,6 @@ extension MainCoordinator {
         let sideCoordinator = ThirdSectionCoordinator(sideNavigation)
         self.childCoordinators.append(sideCoordinator)
         sideCoordinator.start()
-        
-        guard let vc = sideNavigation.topViewController else { return }
-        
-        tabBarVC.addChild(vc)
+        tabBarVC.addChild(sideNavigation)
     }
 }

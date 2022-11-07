@@ -31,6 +31,7 @@ final class DishViewController: UIViewController {
     }
     
     weak var deleage: Coordinator?
+    weak var detailNavigationDelegate: DetailNavigateDelegate?
     
     private var viewModel: MainViewModel
     private let disposeBag = DisposeBag()
@@ -135,6 +136,7 @@ private extension DishViewController {
                 guard let self = self else { return }
                 
                 // TODO: 셀 선택 시 상세 화면 이동 로직 구현 예정
+                self.detailNavigationDelegate?.moveToDetailVC(with: model.detailHash, entity: model)
             }
             .disposed(by: disposeBag)
         

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FirstSectionCoordinator: Coordinator {
+class FirstSectionCoordinator: Coordinator, DetailNavigateDelegate {
     
     weak var parentCoordinator: Coordinator?
     var childCoordinators: [Coordinator] = []
@@ -24,10 +24,17 @@ class FirstSectionCoordinator: Coordinator {
         let mainVC = DishViewController(viewModel: mainVM)
         
         mainVC.deleage = self
+        mainVC.detailNavigationDelegate = self
         mainVC.view.backgroundColor = .white
         mainVC.tabBarItem = UITabBarItem(title: "Main", image: nil, tag: 0)
         
         self.navigationController.setNavigationBarHidden(true, animated: false)
         self.navigationController.pushViewController(mainVC, animated: false)
+    }
+    
+    func moveToDetailVC(with hash: String, entity: OnbanFoodEntity) {
+        let detailVC = DetailViewController(detailHash: hash, foodEntity: entity)
+        
+        self.navigationController.pushViewController(detailVC, animated: true)
     }
 }

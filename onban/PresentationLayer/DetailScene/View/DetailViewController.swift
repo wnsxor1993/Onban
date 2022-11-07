@@ -8,6 +8,7 @@
 import UIKit
 import Then
 import SnapKit
+import RxSwift
 import RxCocoa
 
 final class DetailViewController: UIViewController {
@@ -35,16 +36,27 @@ final class DetailViewController: UIViewController {
     
     private var detailTextView = DetailTextView()
     
-    private var descriptionImageTableView = UITableView().then {
-        $0.register(DetailDescriptionImageCell.self, forCellReuseIdentifier: DetailDescriptionImageCell.reuseIdentifier)
-        $0.isScrollEnabled = false
-        $0.showsVerticalScrollIndicator = false
+    private let detailHash: String
+    private let foodEntityData: OnbanFoodEntity
+    
+    init(detailHash: String, foodEntity: OnbanFoodEntity) {
+        self.detailHash = detailHash
+        self.foodEntityData = foodEntity
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("This class does not support NSCoder")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = .white
         self.configureLayouts()
+        self.configureDefaultData()
     }
 }
 
@@ -53,7 +65,7 @@ private extension DetailViewController {
     func configureLayouts() {
         self.view.addSubview(scrollView)
         self.scrollView.addSubview(verticalStackView)
-        self.verticalStackView.addArrangedSubviews(mainImageCollectionView, detailTextView, descriptionImageTableView)
+        self.verticalStackView.addArrangedSubviews(mainImageCollectionView, detailTextView)
         
         scrollView.snp.makeConstraints { make in
             make.top.bottom.leading.trailing.equalToSuperview()
@@ -61,6 +73,7 @@ private extension DetailViewController {
         
         verticalStackView.snp.makeConstraints { make in
             make.top.bottom.leading.trailing.equalToSuperview()
+            make.width.equalToSuperview()
         }
         
         mainImageCollectionView.snp.makeConstraints { make in
@@ -72,10 +85,12 @@ private extension DetailViewController {
             make.width.equalToSuperview()
             make.height.equalTo(625)
         }
+    }
+    
+    func configureDefaultData() {
+        detailTextView.setMainData(with: foodEntityData)
         
-        descriptionImageTableView.snp.makeConstraints { make in
-            make.width.equalToSuperview()
-            make.height.greaterThanOrEqualTo(1000)
-        }
+        // 임시 데이터
+        detailTextView.setDescriptionData(with: "126원", deliveryInfo: "테스트 장소", deliveryFee: "2,500원")
     }
 }
