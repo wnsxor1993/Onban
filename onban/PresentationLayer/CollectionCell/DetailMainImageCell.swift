@@ -34,13 +34,8 @@ final class DetailMainImageCell: UICollectionViewCell {
         fatalError("This class does not support NSCoder")
     }
     
-    func setMainImage(with data: Data?, urlString: String) {
-        if let data = data {
-            self.imageView.image = UIImage(data: data)
-            
-        } else {
-            self.imageView.load(with: urlString)
-        }
+    func setMainImage(with data: Data) {
+        self.imageView.image = UIImage(data: data)
     }
 }
 

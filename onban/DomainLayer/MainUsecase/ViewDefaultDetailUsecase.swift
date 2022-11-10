@@ -11,6 +11,8 @@ final class ViewDefaultDetailUsecase: ViewDetailUsecase {
     
     private let repository: ViewDetailRepository
     let foodDetailEntity = PublishSubject<OnbanFoodDetailEntity>()
+    let detailThumbImages = PublishSubject<[Data?]>()
+    let detailDescriptionImages = PublishSubject<[Data?]>()
     
     init(repository: ViewDetailRepository) {
         self.repository = repository
@@ -35,34 +37,64 @@ final class ViewDefaultDetailUsecase: ViewDetailUsecase {
 private extension ViewDefaultDetailUsecase {
     
     func convertToEntity(from detailDTO: OnbanDetailDTO) {
-        var entity = OnbanFoodDetailEntity(thumbImageURLStrings: detailDTO.thumbImages, detailImageURLStrings: detailDTO.detailSection, point: detailDTO.point, deliveryInfo: detailDTO.deliveryInfo, deliveryFee: detailDTO.deliveryFee)
+        let entity = OnbanFoodDetailEntity(thumbImageURLStrings: detailDTO.thumbImages, detailImageURLStrings: detailDTO.detailSection, point: detailDTO.point, deliveryInfo: detailDTO.deliveryInfo, deliveryFee: detailDTO.deliveryFee)
         
-        guard let thumbImages = loadOrSaveChacheImages(with: entity.thumbImageURLStrings), let detailImages = loadOrSaveChacheImages(with: entity.thumbImageURLStrings) else {
-            self.foodDetailEntity.onNext(entity)
-            
-            return
+        DispatchQueue.global().async {
+            self.chacheThumbImages(with: detailDTO.thumbImages)
+            self.chacheDescriptionImages(with: detailDTO.detailSection)
         }
-        
-        entity.thumbImages = thumbImages
-        entity.detailImages = detailImages
         
         self.foodDetailEntity.onNext(entity)
     }
     
-    func loadOrSaveChacheImages(with urlStrings: [String]) -> [Data]? {
-        var cachedImages: [Data]? = nil
+    func chacheThumbImages(with urlStrings: [String]) {
+        var cachedImages = [Data?]()
         
         urlStrings.forEach {
-            guard let url = URL(string: $0), let imageData = FileCachedManager.loadData(validURL: url) else {
+            guard let url = URL(string: $0) else { return }
+            
+            if let imageData = FileCachedManager.loadData(validURL: url) {
+                cachedImages.append(imageData)
+                
+            } else {
                 FileCachedManager.saveData(urlString: $0)
                 
-                return
+                guard let data = try? Data(contentsOf: url) else {
+                    cachedImages.append(nil)
+                    
+                    return
+                }
+                
+                cachedImages.append(data)
             }
-            
-            cachedImages?.append(imageData)
         }
         
-        return cachedImages
+        detailThumbImages.onNext(cachedImages)
+    }
+    
+    func chacheDescriptionImages(with urlStrings: [String]) {
+        var cachedImages = [Data?]()
+        
+        urlStrings.forEach {
+            guard let url = URL(string: $0) else { return }
+            
+            if let imageData = FileCachedManager.loadData(validURL: url) {
+                cachedImages.append(imageData)
+                
+            } else {
+                FileCachedManager.saveData(urlString: $0)
+                
+                guard let data = try? Data(contentsOf: url) else {
+                    cachedImages.append(nil)
+                    
+                    return
+                }
+                
+                cachedImages.append(data)
+            }
+        }
+        
+        detailDescriptionImages.onNext(cachedImages)
     }
 }
 

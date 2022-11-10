@@ -38,7 +38,6 @@ final class MainViewController: UIViewController {
     private lazy var input = MainViewModel.Input(defaultShowingDataEvent: self.rx.viewWillAppear)
     private lazy var output = self.viewModel.transform(input: input, disposeBag: self.disposeBag)
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,6 +49,7 @@ final class MainViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.configureSectionTitle()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
     init(viewModel: MainViewModel) {
@@ -61,6 +61,16 @@ final class MainViewController: UIViewController {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("This class does not support NSCoder")
+    }
+}
+
+// MARK: Navigation Gesture Back 기능
+extension MainViewController: UIGestureRecognizerDelegate {
+    
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        guard let viewControllers = self.navigationController?.viewControllers, viewControllers.count > 1 else { return false }
+        
+        return true
     }
 }
 

@@ -38,6 +38,7 @@
 		D2A5EEFD2918C60900EF5545 /* OnbanFoodDetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A5EEFC2918C60900EF5545 /* OnbanFoodDetailEntity.swift */; };
 		D2A5EEFF2918C79C00EF5545 /* ViewDetailUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A5EEFE2918C79C00EF5545 /* ViewDetailUsecase.swift */; };
 		D2A5EF012918C7D500EF5545 /* ViewDefaultDetailUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A5EF002918C7D500EF5545 /* ViewDefaultDetailUsecase.swift */; };
+		D2A5EF05291B86F500EF5545 /* Array +.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A5EF04291B86F500EF5545 /* Array +.swift */; };
 		D2D929FF290A093400D46676 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D929FE290A093400D46676 /* AppDelegate.swift */; };
 		D2D92A01290A093400D46676 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A00290A093400D46676 /* SceneDelegate.swift */; };
 		D2D92A03290A093400D46676 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A02290A093400D46676 /* MainViewController.swift */; };
@@ -94,6 +95,7 @@
 		D2A5EEFC2918C60900EF5545 /* OnbanFoodDetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbanFoodDetailEntity.swift; sourceTree = "<group>"; };
 		D2A5EEFE2918C79C00EF5545 /* ViewDetailUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDetailUsecase.swift; sourceTree = "<group>"; };
 		D2A5EF002918C7D500EF5545 /* ViewDefaultDetailUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDefaultDetailUsecase.swift; sourceTree = "<group>"; };
+		D2A5EF04291B86F500EF5545 /* Array +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array +.swift"; sourceTree = "<group>"; };
 		D2D929FB290A093400D46676 /* onban.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = onban.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2D929FE290A093400D46676 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2D92A00290A093400D46676 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 				D2D92A4C290B757200D46676 /* StackView +.swift */,
 				D28CED96290F9D4900ADDD79 /* RxSwift +.swift */,
 				D27CB8B729120A0B00C3A8EF /* UIImageView +.swift */,
+				D2A5EF04291B86F500EF5545 /* Array +.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -573,6 +576,7 @@
 				D28CED8A290F627700ADDD79 /* OnbanFoodDTO.swift in Sources */,
 				D2D92A1D290A4ABE00D46676 /* Coordinator.swift in Sources */,
 				D2A5EEFF2918C79C00EF5545 /* ViewDetailUsecase.swift in Sources */,
+				D2A5EF05291B86F500EF5545 /* Array +.swift in Sources */,
 				D28CED90290F83DD00ADDD79 /* ViewMainUsecase.swift in Sources */,
 				D2D92A03290A093400D46676 /* MainViewController.swift in Sources */,
 				D27CB8C6291494E100C3A8EF /* DetailMainImageCell.swift in Sources */,

@@ -19,6 +19,7 @@ final class DetailViewController: UIViewController {
     }
     
     private var verticalStackView = UIStackView().then {
+        $0.alignment = .center
         $0.distribution = .fill
         $0.axis = .vertical
     }
@@ -29,19 +30,21 @@ final class DetailViewController: UIViewController {
         
         $0.collectionViewLayout = layout
         $0.showsVerticalScrollIndicator = false
-        $0.showsHorizontalScrollIndicator = false
         $0.isPagingEnabled = true
         $0.register(DetailMainImageCell.self, forCellWithReuseIdentifier: DetailMainImageCell.reuseIdentifier)
     }
     
     private var detailTextView = DetailTextView()
     
-    private let detailHash: String
+    private let detailVM: DetailViewModel
     private let foodEntityData: OnbanFoodEntity
     private let disposeBag = DisposeBag()
     
-    init(detailHash: String, foodEntity: OnbanFoodEntity) {
-        self.detailHash = detailHash
+    private lazy var input = DetailViewModel.Input(defaultShowingDataEvent: self.rx.viewWillAppear)
+    private lazy var output = self.detailVM.transform(input: input, disposeBag: disposeBag)
+    
+    init(detailVM: DetailViewModel, foodEntity: OnbanFoodEntity) {
+        self.detailVM = detailVM
         self.foodEntityData = foodEntity
         
         super.init(nibName: nil, bundle: nil)
@@ -57,7 +60,16 @@ final class DetailViewController: UIViewController {
         
         self.view.backgroundColor = .white
         self.configureLayouts()
-        self.configureDefaultData()
+        self.configureDataBinding()
+    }
+}
+
+extension DetailViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = self.view.frame.width
+        
+        return CGSize(width: width, height: width)
     }
 }
 
@@ -88,12 +100,54 @@ private extension DetailViewController {
         }
     }
     
-    func configureDefaultData() {
-        detailTextView.setMainData(with: foodEntityData)
+    func configureDataBinding() {
+        self.detailTextView.setMainData(with: foodEntityData)
         
-        // 임시 데이터
-        detailTextView.setDescriptionData(with: "126원", deliveryInfo: "테스트 장소", deliveryFee: "2,500원")
+        output.onbanDetailData
+            .subscribe { [weak self] entity in
+                guard let self = self, let entity = entity.element else { return }
+                
+                self.detailTextView.setDescriptionData(with: entity.point, deliveryInfo: entity.deliveryInfo, deliveryFee: entity.deliveryFee)
+            }
+            .disposed(by: disposeBag)
         
+        output.onbanDetailThumbnailImages
+            .map { return $0.compactMap { $0 } }
+            .bind(to: mainImageCollectionView.rx.items(cellIdentifier: DetailMainImageCell.reuseIdentifier, cellType: DetailMainImageCell.self)) { _, value, cell in
+                
+                cell.setMainImage(with: value)
+            }
+            .disposed(by: disposeBag)
         
+        self.mainImageCollectionView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
+        
+        output.onbanDetailDescripImages
+            .observe(on: MainScheduler.instance)
+            .map { return $0.compactMap { $0 } }
+            .subscribe { [weak self] datas in
+                guard let self = self, let datas = datas.element else { return }
+                
+                var heightRatio: CGFloat = 0
+                
+                datas.forEach { data in
+                    let image = UIImage(data: data)
+                    heightRatio = (image?.size.height ?? 0) / (image?.size.width ?? 0)
+                    
+                    let imageView = UIImageView().then {
+                        $0.contentMode = .scaleAspectFit
+                        $0.image = image
+                    }
+                    
+                    self.verticalStackView.addArrangedSubview(imageView)
+                    
+                    imageView.snp.makeConstraints { make in
+                        make.leading.equalToSuperview().offset(16)
+                        make.trailing.equalToSuperview().offset(-16)
+                        make.height.equalTo(self.view.snp.width).multipliedBy(heightRatio).offset(-32)
+                    }
+                }
+            }
+            .disposed(by: disposeBag)
     }
 }

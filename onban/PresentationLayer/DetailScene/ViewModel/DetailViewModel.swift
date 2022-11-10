@@ -11,28 +11,33 @@ import RxCocoa
 final class DetailViewModel {
     
     struct Input {
-        let defaultShowingDataEvent: Observable<String>
+        let defaultShowingDataEvent: Observable<Bool>
     }
     
     struct Output {
-        let onbanFoodDetailData = PublishSubject<OnbanFoodDetailEntity>()
+        let onbanDetailData = PublishSubject<OnbanFoodDetailEntity>()
+        let onbanDetailThumbnailImages = PublishSubject<[Data?]>()
+        let onbanDetailDescripImages = PublishSubject<[Data?]>()
     }
     
+    private let queryHash: String
     private let usecase: ViewDetailUsecase
     private let output = Output()
     
-    init(usecase: ViewDetailUsecase) {
+    init(queryHash: String, usecase: ViewDetailUsecase) {
+        self.queryHash = queryHash
         self.usecase = usecase
+        
+        self.usecase.setRepositoryQuery(with: queryHash)
     }
     
     func transform(input: Input, disposeBag: DisposeBag) -> Output {
         self.configureBindingWithUsecase(disposeBag: disposeBag)
         
         input.defaultShowingDataEvent
-            .subscribe({ [weak self] hash in
-                guard let self = self, let hash = hash.element else { return }
+            .subscribe({ [weak self] _ in
+                guard let self = self else { return }
                 
-                self.usecase.setRepositoryQuery(with: hash)
                 self.usecase.execute(with: disposeBag)
             })
             .disposed(by: disposeBag)
@@ -45,7 +50,15 @@ private extension DetailViewModel {
     
     func configureBindingWithUsecase(disposeBag: DisposeBag) {
         self.usecase.foodDetailEntity
-            .bind(to: output.onbanFoodDetailData)
+            .bind(to: output.onbanDetailData)
+            .disposed(by: disposeBag)
+        
+        self.usecase.detailThumbImages
+            .bind(to: output.onbanDetailThumbnailImages)
+            .disposed(by: disposeBag)
+        
+        self.usecase.detailDescriptionImages
+            .bind(to: output.onbanDetailDescripImages)
             .disposed(by: disposeBag)
     }
 }

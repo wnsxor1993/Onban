@@ -23,13 +23,13 @@ final class DetailTextMainView: UIView {
     }
     
     private var amountLabel = UILabel().then {
-        $0.font = .systemFont(ofSize: 14, weight: .semibold)
+        $0.font = .systemFont(ofSize: 18, weight: .semibold)
         $0.sizeToFit()
     }
     
     private var discountLabel = UILabel().then {
         $0.textColor = .lightGray
-        $0.font = .systemFont(ofSize: 14, weight: .semibold)
+        $0.font = .systemFont(ofSize: 16, weight: .regular)
         $0.sizeToFit()
     }
     
@@ -114,7 +114,7 @@ private extension DetailTextMainView {
         }
         
         eventStackView.snp.makeConstraints { make in
-            make.top.equalTo(discountLabel.snp.bottom).offset(16)
+            make.top.equalTo(amountLabel.snp.bottom).offset(16)
             make.leading.equalTo(amountLabel)
             make.height.equalTo(24)
         }

@@ -32,7 +32,10 @@ class FirstSectionCoordinator: Coordinator, DetailNavigateDelegate {
     }
     
     func moveToDetailVC(with hash: String, entity: OnbanFoodEntity) {
-        let detailVC = DetailViewController(detailHash: hash, foodEntity: entity)
+        let detailRepository = ViewDefaultDetailRepository()
+        let detailUsecase = ViewDefaultDetailUsecase(repository: detailRepository)
+        let detailVM = DetailViewModel(queryHash: hash, usecase: detailUsecase)
+        let detailVC = DetailViewController(detailVM: detailVM, foodEntity: entity)
         
         self.navigationController.pushViewController(detailVC, animated: true)
     }
