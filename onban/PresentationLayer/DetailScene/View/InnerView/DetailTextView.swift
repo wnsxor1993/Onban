@@ -16,13 +16,17 @@ final class DetailTextView: UIView {
     private var textMainView = DetailTextMainView()
     private var textDescriptionView = DetailTextDescriptionView()
     private var textQuantityView = DetailTextQuantityView()
-    private var textTotalAmountView = DetailTextTotalAmountView()
+    private lazy var textTotalAmountView = DetailTextTotalAmountView(with: onbanFoodEntity.sPrice)
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    private let onbanFoodEntity: OnbanFoodEntity
+    
+    init(with model: OnbanFoodEntity) {
+        self.onbanFoodEntity = model
+        super.init(frame: .init())
         
         self.backgroundColor = .white
         self.configureLayouts()
+        self.configureMainData()
     }
     
     @available(*, unavailable)
@@ -30,26 +34,13 @@ final class DetailTextView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setMainData(with model: OnbanFoodEntity) {
-        textMainView.setDetailMainValues(title: model.title, description: model.bodyDescription, amount: model.sPrice, discount: model.nPrice)
-        
-        guard let badges = model.badge else {
-            textMainView.hiddenEventLabel()
-            textMainView.snp.remakeConstraints { make in
-                make.leading.top.trailing.equalToSuperview()
-                make.height.equalTo(170)
-            }
-            
-            return
-        }
-        
-        badges.forEach {
-            textMainView.setEventLabel($0)
-        }
-    }
-    
     func setDescriptionData(with point: String, deliveryInfo: String, deliveryFee: String) {
         textDescriptionView.setDescriptions(savedMoney: point, delivery: deliveryInfo, fee: deliveryFee)
+    }
+    
+    func setQuantityAndAmount(with count: Int) {
+        textQuantityView.setQuantityCount(with: count)
+        textTotalAmountView.setAmountValue(count: count)
     }
     
     func setQuantityStepDriver() -> Driver<Int> {
@@ -117,6 +108,24 @@ private extension DetailTextView {
                 make.trailing.equalToSuperview().offset(-16)
                 make.top.equalTo(topView.snp.bottom)
             }
+        }
+    }
+    
+    func configureMainData() {
+        textMainView.setDetailMainValues(title: onbanFoodEntity.title, description: onbanFoodEntity.bodyDescription, amount: onbanFoodEntity.sPrice, discount: onbanFoodEntity.nPrice)
+        
+        guard let badges = onbanFoodEntity.badge else {
+            textMainView.hiddenEventLabel()
+            textMainView.snp.remakeConstraints { make in
+                make.leading.top.trailing.equalToSuperview()
+                make.height.equalTo(170)
+            }
+            
+            return
+        }
+        
+        badges.forEach {
+            textMainView.setEventLabel($0)
         }
     }
 }

@@ -27,7 +27,7 @@ final class DetailTextQuantityView: UIView {
     private lazy var quantityCountLabel = UILabel().then {
         $0.sizeToFit()
         $0.font = .systemFont(ofSize: 18, weight: .semibold)
-        $0.text = "\(Int(quantityStepper.value))"
+        $0.text = "1"
     }
     
     override init(frame: CGRect) {
@@ -46,6 +46,10 @@ final class DetailTextQuantityView: UIView {
         return quantityStepper.rx.value
             .map { Int($0) }
             .asDriver(onErrorJustReturn: 1)
+    }
+    
+    func setQuantityCount(with countValue: Int) {
+        quantityCountLabel.text = "\(countValue)"
     }
 }
 

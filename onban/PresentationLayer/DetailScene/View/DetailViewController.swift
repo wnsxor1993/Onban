@@ -34,7 +34,7 @@ final class DetailViewController: UIViewController {
         $0.register(DetailMainImageCell.self, forCellWithReuseIdentifier: DetailMainImageCell.reuseIdentifier)
     }
     
-    private var detailTextView = DetailTextView()
+    private lazy var detailTextView = DetailTextView(with: foodEntityData)
     
     private let detailVM: DetailViewModel
     private let foodEntityData: OnbanFoodEntity
@@ -61,6 +61,7 @@ final class DetailViewController: UIViewController {
         self.view.backgroundColor = .white
         self.configureLayouts()
         self.configureDataBinding()
+        self.configureInnerBinding()
     }
 }
 
@@ -101,8 +102,6 @@ private extension DetailViewController {
     }
     
     func configureDataBinding() {
-        self.detailTextView.setMainData(with: foodEntityData)
-        
         output.onbanDetailData
             .subscribe { [weak self] entity in
                 guard let self = self, let entity = entity.element else { return }
@@ -147,6 +146,14 @@ private extension DetailViewController {
                         make.height.equalTo(self.view.snp.width).multipliedBy(heightRatio).offset(-32)
                     }
                 }
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    func configureInnerBinding() {
+        detailTextView.setQuantityStepDriver()
+            .drive { [weak self] value in
+                self?.detailTextView.setQuantityAndAmount(with: value)
             }
             .disposed(by: disposeBag)
     }

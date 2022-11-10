@@ -36,17 +36,12 @@ final class DetailTextTotalAmountView: UIView {
     
     private var defaultAmount = 0
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        self.configureLayouts()
-    }
-    
-    convenience init(amount: String) {
-        self.init()
+    init(with amount: String) {
+        super.init(frame: .init())
         
         self.amountValueLabel.text = amount
         self.changeStringToInt(amountString: amount)
+        self.configureLayouts()
     }
     
     @available(*, unavailable)
@@ -57,11 +52,20 @@ final class DetailTextTotalAmountView: UIView {
     func setAmountValue(count: Int) {
         let amount = defaultAmount * count
         var amountString = String(amount)
+        var amountIndex = 0
         
-        let index = amountString.index(amountString.startIndex, offsetBy: 2)
+        guard amountString.count > 3 else {
+            self.amountValueLabel.text = "\(amountString)원"
+            
+            return
+        }
+        
+        amountIndex += (amountString.count - 3)
+        
+        let index = amountString.index(amountString.startIndex, offsetBy: amountIndex)
         amountString.insert(",", at: index)
         
-        self.amountValueLabel.text = amountString
+        self.amountValueLabel.text = "\(amountString)원"
     }
     
     func setButtonTouchDriver() -> Driver<Void> {
@@ -79,13 +83,12 @@ private extension DetailTextTotalAmountView {
         amountValueLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(24)
             make.trailing.equalToSuperview().offset(-16)
-            make.width.equalTo(132)
             make.height.equalTo(48)
         }
         
         amountTitleLabel.snp.makeConstraints { make in
             make.centerY.equalTo(amountValueLabel)
-            make.trailing.equalTo(amountValueLabel.snp.leading).offset(-24)
+            make.leading.equalToSuperview().offset(100)
         }
         
         orderButton.snp.makeConstraints { make in
