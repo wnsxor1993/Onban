@@ -63,6 +63,13 @@ final class DetailViewController: UIViewController {
         self.configureDataBinding()
         self.configureInnerBinding()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.navigationBar.topItem?.title = foodEntityData.title
+    }
 }
 
 extension DetailViewController: UICollectionViewDelegateFlowLayout {

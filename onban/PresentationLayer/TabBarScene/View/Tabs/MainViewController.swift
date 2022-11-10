@@ -43,13 +43,14 @@ final class MainViewController: UIViewController {
         
         self.configureLayouts()
         self.configureFoodData()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.configureSectionTitle()
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     init(viewModel: MainViewModel) {
@@ -86,7 +87,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
 private extension MainViewController {
     
     func configureSectionTitle() {
-        switch self.tabBarItem.tag {
+        switch self.navigationController?.tabBarItem.tag {
         case 0:
             self.sectionLabel.text = "모두가 좋아하는\n든든한 메인 요리"
             

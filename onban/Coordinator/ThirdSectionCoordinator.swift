@@ -27,7 +27,6 @@ class ThirdSectionCoordinator: Coordinator, DetailNavigateDelegate {
         sideVC.detailNavigationDelegate = self
         sideVC.view.backgroundColor = .white
         
-        self.navigationController.setNavigationBarHidden(true, animated: false)
         self.navigationController.pushViewController(sideVC, animated: false)
     }
     
@@ -37,6 +36,7 @@ class ThirdSectionCoordinator: Coordinator, DetailNavigateDelegate {
         let detailVM = DetailViewModel(queryHash: hash, usecase: detailUsecase)
         let detailVC = DetailViewController(detailVM: detailVM, foodEntity: entity)
         
+        detailVC.hidesBottomBarWhenPushed = true
         self.navigationController.pushViewController(detailVC, animated: true)
     }
 }

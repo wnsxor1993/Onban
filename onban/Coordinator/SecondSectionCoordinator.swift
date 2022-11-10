@@ -27,7 +27,6 @@ class SecondSectionCoordinator: Coordinator, DetailNavigateDelegate {
         soupVC.detailNavigationDelegate = self
         soupVC.view.backgroundColor = .white
         
-        self.navigationController.setNavigationBarHidden(true, animated: false)
         self.navigationController.pushViewController(soupVC, animated: false)
     }
     
@@ -37,6 +36,7 @@ class SecondSectionCoordinator: Coordinator, DetailNavigateDelegate {
         let detailVM = DetailViewModel(queryHash: hash, usecase: detailUsecase)
         let detailVC = DetailViewController(detailVM: detailVM, foodEntity: entity)
         
+        detailVC.hidesBottomBarWhenPushed = true
         self.navigationController.pushViewController(detailVC, animated: true)
     }
 }
