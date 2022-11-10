@@ -17,6 +17,7 @@ final class DetailTextMainView: UIView {
     }
     
     private var descriptionLabel = UILabel().then {
+        $0.numberOfLines = 2
         $0.textColor = .lightGray
         $0.font = .systemFont(ofSize: 18)
         $0.sizeToFit()
@@ -61,6 +62,10 @@ final class DetailTextMainView: UIView {
         self.discountLabel.attributedText = discount.strikeThrough()
     }
     
+    func hiddenEventLabel() {
+        self.eventStackView.isHidden = true
+    }
+    
     func setEventLabel(_ event: String) {
         let label = UILabel().then {
             $0.font = .systemFont(ofSize: 12, weight: .semibold)
@@ -100,7 +105,8 @@ private extension DetailTextMainView {
         
         descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(8)
-            make.leading.equalTo(titleLabel)
+            make.leading.equalTo(titleLabel.snp.leading)
+            make.trailing.equalTo(titleLabel.snp.trailing)
         }
         
         amountLabel.snp.makeConstraints { make in

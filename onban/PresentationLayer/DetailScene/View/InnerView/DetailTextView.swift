@@ -33,7 +33,15 @@ final class DetailTextView: UIView {
     func setMainData(with model: OnbanFoodEntity) {
         textMainView.setDetailMainValues(title: model.title, description: model.bodyDescription, amount: model.sPrice, discount: model.nPrice)
         
-        guard let badges = model.badge else { return }
+        guard let badges = model.badge else {
+            textMainView.hiddenEventLabel()
+            textMainView.snp.remakeConstraints { make in
+                make.leading.top.trailing.equalToSuperview()
+                make.height.equalTo(170)
+            }
+            
+            return
+        }
         
         badges.forEach {
             textMainView.setEventLabel($0)
