@@ -56,7 +56,6 @@
 		D2D92A4B290B736200D46676 /* String +.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A4A290B736200D46676 /* String +.swift */; };
 		D2D92A4D290B757200D46676 /* StackView +.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D92A4C290B757200D46676 /* StackView +.swift */; };
 		D2E18CFE2918A00D0031C425 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E18CFD2918A00D0031C425 /* DetailViewModel.swift */; };
-		D2E18D002918BFBC0031C425 /* ViewDefaultDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E18CFF2918BFBC0031C425 /* ViewDefaultDetailRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,7 +112,6 @@
 		D2D92A4A290B736200D46676 /* String +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String +.swift"; sourceTree = "<group>"; };
 		D2D92A4C290B757200D46676 /* StackView +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView +.swift"; sourceTree = "<group>"; };
 		D2E18CFD2918A00D0031C425 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
-		D2E18CFF2918BFBC0031C425 /* ViewDefaultDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDefaultDetailRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,7 +224,6 @@
 			isa = PBXGroup;
 			children = (
 				D28CED9D290FC29000ADDD79 /* ViewDefaultMainRepository.swift */,
-				D2E18CFF2918BFBC0031C425 /* ViewDefaultDetailRepository.swift */,
 				D28CEDA729109B4200ADDD79 /* Protocol */,
 			);
 			path = Repository;
@@ -555,7 +552,6 @@
 				D2D92A4B290B736200D46676 /* String +.swift in Sources */,
 				D27CB8D22914AC3800C3A8EF /* LineView.swift in Sources */,
 				D2D92A31290A681D00D46676 /* FirstSectionCoordinator.swift in Sources */,
-				D2E18D002918BFBC0031C425 /* ViewDefaultDetailRepository.swift in Sources */,
 				D28CEDA2290FC87800ADDD79 /* NetworkError.swift in Sources */,
 				D2D92A3D290A6B8E00D46676 /* ThirdSectionCoordinator.swift in Sources */,
 				D27CB8CE2914A0CC00C3A8EF /* EventLabel.swift in Sources */,
