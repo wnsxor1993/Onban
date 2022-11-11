@@ -65,6 +65,7 @@ private extension DetailTextDescriptionView {
         }
     }
     
+    // 동일 설정 값의 라벨 반복 배치이므로 Label은 반복문 생성으로 배치
     func configureLabels() {
         for num in 0...2 {
             let label = UILabel().then {

@@ -32,6 +32,7 @@ final class ViewDefaultDetailUsecase: ViewDetailUsecase {
 
 private extension ViewDefaultDetailUsecase {
     
+    // DTO -> Entity
     func convertToEntity(from detailDTO: OnbanDetailDTO) {
         let entity = OnbanFoodDetailEntity(thumbImageURLStrings: detailDTO.thumbImages, detailImageURLStrings: detailDTO.detailSection, point: detailDTO.point, deliveryInfo: detailDTO.deliveryInfo, deliveryFee: detailDTO.deliveryFee)
         
@@ -43,6 +44,7 @@ private extension ViewDefaultDetailUsecase {
         self.foodDetailEntity.onNext(entity)
     }
     
+    // Entity thumbUrlStrings -> Data
     func chacheThumbImages(with urlStrings: [String]) {
         var cachedImages = [Data?]()
         
@@ -68,6 +70,7 @@ private extension ViewDefaultDetailUsecase {
         detailThumbImages.onNext(cachedImages)
     }
     
+    // Entity descriptionUrlStrings -> Data
     func chacheDescriptionImages(with urlStrings: [String]) {
         var cachedImages = [Data?]()
         

@@ -30,6 +30,7 @@ final class ViewDefaultMainUsecase: ViewMainUsecase {
 
 private extension ViewDefaultMainUsecase {
     
+    // DTO -> Entity
     func convertToEntity(from onbanDTO: [OnbanFoodDTO]) {
         var foodEntities = [OnbanFoodEntity]()
         

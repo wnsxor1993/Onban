@@ -38,16 +38,19 @@ final class DetailTextView: UIView {
         textDescriptionView.setDescriptions(savedMoney: point, delivery: deliveryInfo, fee: deliveryFee)
     }
     
+    // Stepper Value 값을 매개변수로 전달하여 수량과 총액에 반영
     func setQuantityAndAmount(with count: Int) {
         textQuantityView.setQuantityCount(with: count)
         textTotalAmountView.setAmountValue(count: count)
     }
     
+    // Stepper action에 따른 Int value 방출 (from. TextQuantityView)
     func setQuantityStepDriver() -> Driver<Int> {
         
         return textQuantityView.setStepperValueDriver()
     }
     
+    // Button action에 따른 Void 방출 (from. TotalAmountView)
     func setAmountButtonTouchDriver() -> Driver<Void> {
         
         return textTotalAmountView.setButtonTouchDriver()

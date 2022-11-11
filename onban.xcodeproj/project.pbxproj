@@ -19,7 +19,6 @@
 		D27CB8D22914AC3800C3A8EF /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CB8D12914AC3800C3A8EF /* LineView.swift */; };
 		D27CB8D42914AE5A00C3A8EF /* DetailTextQuantityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CB8D32914AE5A00C3A8EF /* DetailTextQuantityView.swift */; };
 		D27CB8D62914C91800C3A8EF /* DetailTextTotalAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CB8D52914C91800C3A8EF /* DetailTextTotalAmountView.swift */; };
-		D27CB8DB2914E02700C3A8EF /* DetailDescriptionImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CB8DA2914E02700C3A8EF /* DetailDescriptionImageCell.swift */; };
 		D27CB8DD2914E5CE00C3A8EF /* OnbanDetailDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CB8DC2914E5CE00C3A8EF /* OnbanDetailDTO.swift */; };
 		D27CB8DF2914F03A00C3A8EF /* DetailNavigateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CB8DE2914F03A00C3A8EF /* DetailNavigateDelegate.swift */; };
 		D28CED8A290F627700ADDD79 /* OnbanFoodDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CED89290F627700ADDD79 /* OnbanFoodDTO.swift */; };
@@ -34,7 +33,6 @@
 		D28CEDA0290FC66500ADDD79 /* JSONConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CED9F290FC66500ADDD79 /* JSONConverter.swift */; };
 		D28CEDA2290FC87800ADDD79 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CEDA1290FC87800ADDD79 /* NetworkError.swift */; };
 		D28CEDA429109AE800ADDD79 /* BasicRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CEDA329109AE800ADDD79 /* BasicRepository.swift */; };
-		D2A5EEFB2918C4F900EF5545 /* ViewDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A5EEFA2918C4F900EF5545 /* ViewDetailRepository.swift */; };
 		D2A5EEFD2918C60900EF5545 /* OnbanFoodDetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A5EEFC2918C60900EF5545 /* OnbanFoodDetailEntity.swift */; };
 		D2A5EEFF2918C79C00EF5545 /* ViewDetailUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A5EEFE2918C79C00EF5545 /* ViewDetailUsecase.swift */; };
 		D2A5EF012918C7D500EF5545 /* ViewDefaultDetailUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A5EF002918C7D500EF5545 /* ViewDefaultDetailUsecase.swift */; };
@@ -76,7 +74,6 @@
 		D27CB8D12914AC3800C3A8EF /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		D27CB8D32914AE5A00C3A8EF /* DetailTextQuantityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTextQuantityView.swift; sourceTree = "<group>"; };
 		D27CB8D52914C91800C3A8EF /* DetailTextTotalAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTextTotalAmountView.swift; sourceTree = "<group>"; };
-		D27CB8DA2914E02700C3A8EF /* DetailDescriptionImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDescriptionImageCell.swift; sourceTree = "<group>"; };
 		D27CB8DC2914E5CE00C3A8EF /* OnbanDetailDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbanDetailDTO.swift; sourceTree = "<group>"; };
 		D27CB8DE2914F03A00C3A8EF /* DetailNavigateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNavigateDelegate.swift; sourceTree = "<group>"; };
 		D28CED89290F627700ADDD79 /* OnbanFoodDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbanFoodDTO.swift; sourceTree = "<group>"; };
@@ -91,7 +88,6 @@
 		D28CED9F290FC66500ADDD79 /* JSONConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONConverter.swift; sourceTree = "<group>"; };
 		D28CEDA1290FC87800ADDD79 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		D28CEDA329109AE800ADDD79 /* BasicRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicRepository.swift; sourceTree = "<group>"; };
-		D2A5EEFA2918C4F900EF5545 /* ViewDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDetailRepository.swift; sourceTree = "<group>"; };
 		D2A5EEFC2918C60900EF5545 /* OnbanFoodDetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbanFoodDetailEntity.swift; sourceTree = "<group>"; };
 		D2A5EEFE2918C79C00EF5545 /* ViewDetailUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDetailUsecase.swift; sourceTree = "<group>"; };
 		D2A5EF002918C7D500EF5545 /* ViewDefaultDetailUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDefaultDetailUsecase.swift; sourceTree = "<group>"; };
@@ -188,14 +184,6 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		D27CB8D92914E00400C3A8EF /* TableCell */ = {
-			isa = PBXGroup;
-			children = (
-				D27CB8DA2914E02700C3A8EF /* DetailDescriptionImageCell.swift */,
-			);
-			path = TableCell;
-			sourceTree = "<group>";
-		};
 		D28CED88290F625700ADDD79 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,7 +236,6 @@
 			isa = PBXGroup;
 			children = (
 				D28CEDA329109AE800ADDD79 /* BasicRepository.swift */,
-				D2A5EEFA2918C4F900EF5545 /* ViewDetailRepository.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -304,7 +291,6 @@
 		D2D92A12290A497A00D46676 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
-				D27CB8D92914E00400C3A8EF /* TableCell */,
 				D2D92A47290B6BCF00D46676 /* CollectionCell */,
 				D2D92A46290B6BB500D46676 /* TabBarScene */,
 				D27CB8C12913AD7D00C3A8EF /* DetailScene */,
@@ -582,7 +568,6 @@
 				D27CB8C6291494E100C3A8EF /* DetailMainImageCell.swift in Sources */,
 				D27CB8DD2914E5CE00C3A8EF /* OnbanDetailDTO.swift in Sources */,
 				D27CB8C82914968D00C3A8EF /* DetailTextView.swift in Sources */,
-				D2A5EEFB2918C4F900EF5545 /* ViewDetailRepository.swift in Sources */,
 				D27CB8B829120A0B00C3A8EF /* UIImageView +.swift in Sources */,
 				D2D929FF290A093400D46676 /* AppDelegate.swift in Sources */,
 				D28CED92290F847F00ADDD79 /* BasicUsecase.swift in Sources */,
@@ -590,7 +575,6 @@
 				D2D92A49290B6C2700D46676 /* TotalFoodCell.swift in Sources */,
 				D27CB8D62914C91800C3A8EF /* DetailTextTotalAmountView.swift in Sources */,
 				D27CB8C32913ADA400C3A8EF /* DetailViewController.swift in Sources */,
-				D27CB8DB2914E02700C3A8EF /* DetailDescriptionImageCell.swift in Sources */,
 				D28CED9E290FC29000ADDD79 /* ViewDefaultMainRepository.swift in Sources */,
 				D27CB8CB2914976F00C3A8EF /* DetailTextMainView.swift in Sources */,
 				D28CED99290FB7CD00ADDD79 /* OnbanService.swift in Sources */,

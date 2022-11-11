@@ -140,15 +140,18 @@ private extension DetailViewController {
     }
     
     func configureDataBinding() {
+        // Detail Entity Data binding
         output.onbanDetailData
             .subscribe { [weak self] entity in
                 guard let self = self, let entity = entity.element else { return }
                 
                 self.detailTextView.setDescriptionData(with: entity.point, deliveryInfo: entity.deliveryInfo, deliveryFee: entity.deliveryFee)
+                // 썸네일 이미지 갯수에 따라 PageControl page 수 설정
                 self.mainImagePageControlView.numberOfPages = entity.thumbImageURLStrings.count
             }
             .disposed(by: disposeBag)
         
+        // mainImageCollectionView Datasource binding
         output.onbanDetailThumbnailImages
             .map { return $0.compactMap { $0 } }
             .bind(to: mainImageCollectionView.rx.items(cellIdentifier: DetailMainImageCell.reuseIdentifier, cellType: DetailMainImageCell.self)) { _, value, cell in
@@ -157,9 +160,11 @@ private extension DetailViewController {
             }
             .disposed(by: disposeBag)
         
+        // CollectionView delegate setting
         self.mainImageCollectionView.rx.setDelegate(self)
             .disposed(by: disposeBag)
         
+        // DescriptionImages Data binding
         output.onbanDetailDescripImages
             .observe(on: MainScheduler.instance)
             .map { return $0.compactMap { $0 } }
@@ -189,6 +194,7 @@ private extension DetailViewController {
             .disposed(by: disposeBag)
     }
     
+    // Stepper 액션에 따른 수량, 가격 변동을 위한 inner Binding
     func configureInnerBinding() {
         detailTextView.setQuantityStepDriver()
             .drive { [weak self] value in

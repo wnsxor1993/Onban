@@ -49,17 +49,20 @@ final class DetailTextTotalAmountView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // Int 값을 받아서 총액 Text 값 변경
     func setAmountValue(count: Int) {
         let amount = defaultAmount * count
         var amountString = String(amount)
         var amountIndex = 0
         
+        // 천 원 밑으로는 쉼표 필요 없음
         guard amountString.count > 3 else {
             self.amountValueLabel.text = "\(amountString)원"
             
             return
         }
         
+        // String 길이가 늘어나도 천 원 단위에 쉼표가 붙어야함
         amountIndex += (amountString.count - 3)
         
         let index = amountString.index(amountString.startIndex, offsetBy: amountIndex)

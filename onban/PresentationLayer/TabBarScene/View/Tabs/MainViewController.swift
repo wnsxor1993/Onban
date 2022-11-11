@@ -125,7 +125,6 @@ private extension MainViewController {
     
     // MARK: CollectionView Data Binidng with Rx
     func configureFoodData() {
-        // TODO: ViewModel Observable 정의 및 Model 생성 필요
         // Datasource binding
         self.output.onbanFoodData
             .bind(to: onbanCollectionView.rx
@@ -133,6 +132,7 @@ private extension MainViewController {
                     cell.setFoodValues(title: value.title, description: value.bodyDescription, amount: value.sPrice, discount: value.nPrice)
                     cell.setFoodImage(imageData: value.image, urlString: value.imageURLString)
                     
+                    // reload에 따른 뱃지 중첩 가능성을 막기 위한 대조 작업
                     guard let badges = value.badge, cell.checkNowEventBadgeCounts() != badges.count else { return }
                     
                     badges.forEach {
@@ -146,7 +146,6 @@ private extension MainViewController {
             .bind { [weak self] model in
                 guard let self = self else { return }
                 
-                // TODO: 셀 선택 시 상세 화면 이동 로직 구현 예정
                 self.detailNavigationDelegate?.moveToDetailVC(with: model.detailHash, entity: model)
             }
             .disposed(by: disposeBag)

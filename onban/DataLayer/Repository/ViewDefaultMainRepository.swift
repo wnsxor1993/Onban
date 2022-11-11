@@ -17,7 +17,7 @@ final class ViewDefaultMainRepository: BasicRepository {
         self.serviceKind = serviceKind
     }
     
-    func requestDTO<T>(with disposeBag: DisposeBag) -> Observable<T> where T : Codable {
+    func requestDTO<T>(with disposeBag: DisposeBag) -> Observable<T> where T: Codable {
         
         return Observable.create { [weak self] observer -> Disposable in
             guard let self = self else {

@@ -111,6 +111,7 @@ final class TotalFoodCell: UICollectionViewCell {
         self.eventCount += 1
     }
     
+    // reload에 따른 뱃지 중첩 추가를 막기 위한 현재 event 갯수 구현
     func checkNowEventBadgeCounts() -> Int {
         
         return self.eventCount

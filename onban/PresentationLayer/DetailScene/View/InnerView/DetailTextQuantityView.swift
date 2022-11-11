@@ -41,6 +41,7 @@ final class DetailTextQuantityView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // Stepper 변화 값 rx로 방출
     func setStepperValueDriver() -> Driver<Int> {
         
         return quantityStepper.rx.value
@@ -48,6 +49,7 @@ final class DetailTextQuantityView: UIView {
             .asDriver(onErrorJustReturn: 1)
     }
     
+    // Int 값을 받아서 수량 Text 값 변경
     func setQuantityCount(with countValue: Int) {
         quantityCountLabel.text = "\(countValue)"
     }

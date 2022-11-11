@@ -30,6 +30,7 @@ final class DetailViewModel {
     func transform(input: Input, disposeBag: DisposeBag) -> Output {
         self.configureBindingWithUsecase(disposeBag: disposeBag)
         
+        // DetailVC가 willAppear될 때 Bool 타입 방출
         input.defaultShowingDataEvent
             .subscribe({ [weak self] _ in
                 guard let self = self else { return }
@@ -45,14 +46,17 @@ final class DetailViewModel {
 private extension DetailViewModel {
     
     func configureBindingWithUsecase(disposeBag: DisposeBag) {
+        // Usecase에서 변환 후 방출한 Entity binding
         self.usecase.foodDetailEntity
             .bind(to: output.onbanDetailData)
             .disposed(by: disposeBag)
         
+        // Usecase에서 변환 후 방출한 Image(Data type) binding
         self.usecase.detailThumbImages
             .bind(to: output.onbanDetailThumbnailImages)
             .disposed(by: disposeBag)
         
+        // Usecase에서 변환 후 방출한 Image(Data type) binding
         self.usecase.detailDescriptionImages
             .bind(to: output.onbanDetailDescripImages)
             .disposed(by: disposeBag)

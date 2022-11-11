@@ -22,7 +22,7 @@
 ## 📝 화면 개요
 |   메인 화면    |   상세 화면   |
 | :----------: | :--------: |
-|  <img src="https://user-images.githubusercontent.com/44107696/199626797-136ba423-0b15-496d-a9c2-903a72703608.gif" width="200"> | <img src="" width="200"> |
+|  <img src="https://user-images.githubusercontent.com/44107696/199626797-136ba423-0b15-496d-a9c2-903a72703608.gif" width="200"> | <img src="https://i.imgur.com/UvpEdCV.gif)" width="200"> |
 |   스크롤과 서브설명 셀 선택 시, 상세설명 이동    |   상세 화면 구현 시 추가   |
 
 ## ⚙️ 개발 환경
@@ -101,3 +101,26 @@
 --------
 
 ### 🔅 상세 화면
+#### 1. ScrollView + CollectionView
+- 고민 사항
+    - 상세 화면의 구조가 전체 스크롤이 가능하면서 썸네일 이미지의 페이징도 구현이 되어야 하다보니 자연스레 Compositional layout을 고민했지만 나머지 요소들은 굳이 이를 쓸 필요 없는 형태이다보니 낭비일 듯 하여 ScrollView를 기초로 나머지 View들을 배치하려 생각함.
+
+- 해결
+    - 처음에는 비동기로 다른 데이터보다 더 늦게 받아올 수 밖에 없는 Image 때문에 썸네일과 상세 이미지 모두 CollectionView로 구현하고자 함. 하지만 StackView 또한 addArrange되면 View를 새로고침하듯 추가된 View를 바로 출력해주는 것을 확인하고, StackView를 Scorll 위에 깔고 나머지 View들을 StackView에 배치하는 것으로 화면을 구현.
+
+
+#### 2. Entity Binding
+- 고민 사항
+    - 앞선 MainVC와 동일하게 하나의 Entity만 받아와서 내부의 Text와 각종 Image들을 할당해주는 형태로 구현하려 했으나, bind(to:.items)의 전달 데이터 타입이 배열이어야 하는 점을 비롯하여 비동기 작업으로 인한 데이터 미전달 가능성 등도 있어 작업에 어려움이 생김.
+
+- 해결
+    - MainVC의 경우 메인 화면 자체가 CollectionView이고 셀 덩어리이다보니 위와 같은 방법이 필수에 가까웠다고 볼 수 있음. 하지만 DetailVC는 View 구조가 Main과 달라 굳이 하나의 Entity를 통해서 모든 작업을 진행할 필요는 없다고 판단함.
+    - Usecase에서 Entity 변환 후, 그대로 Subject에 내려주는 한편 이미지 관련 작업들은 다시 캐싱과 Data 변환 작업을 거쳐 완료되는 대로 각각의 Subject에 전달하는 방식으로 구현.
+
+#### 3. Coordinator NavigationController
+- 고민 사항
+    - AppCoordinator에서 생성한 NavigationController가 존재하나 MainCoordinator에서 TabBarVC와 함께 각 탭의 VC를 생성하는 과정에서 각자의 NavigationController를 할당하다보니 중첩 구조가 됨. (Navigation Bar의 비정상적인 크기를 체크하다가 이 문제를 확인)
+
+- 해결
+    - AppCoor에서 생성된 Navi를 쓰자니 동일한 인스턴스로 인한 꼬임 문제가 발생할 것 같았고 Navi가 어차피 생성될 거니 AppCoor에서는 Navi를 빼고자 하니 차후에 Login 화면과 Main 화면의 전환 가능성을 놓고 봤을 때에는 일일히 SceneDelegate에서 rootVC를 변경하는 것은 아니다싶어서 고민에 빠짐.
+    - 그러나 차후 현재 Scene에서 다른 Scene으로 넘어갈 때, 하나의 Navi로 계속 우려먹는 형태가 되지는 않을 것일 뿐더러 다른 Scene을 Present하고 해당 Scene에서 여러 뷰 이동을 하다가 dismiss를 할 경우에는 기존에 신규 Scene 넘어가기 전의 Scene의 View가 사용자에게 출력되어야 하니 Navi를 공용으로 쓰기에는 제약이 많을 듯 하여, 해당 구조로 그대로 진행하고자 생각함.

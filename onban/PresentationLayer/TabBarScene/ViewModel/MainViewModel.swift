@@ -28,6 +28,7 @@ final class MainViewModel {
     func transform(input: Input, disposeBag: DisposeBag) -> Output {
         self.configureBindingWithUsecase(disposeBag: disposeBag)
         
+        // MainVC가 willAppear될 때 Bool 타입 방출
         input.defaultShowingDataEvent
             .subscribe({ [weak self] _ in
                 guard let self = self else { return }
@@ -43,6 +44,7 @@ final class MainViewModel {
 private extension MainViewModel {
     
     func configureBindingWithUsecase(disposeBag: DisposeBag) {
+        // Usecase에서 변환 후 방출한 Entity binding
         self.usecase.foodsEntity
             .bind(to: output.onbanFoodData)
             .disposed(by: disposeBag)
