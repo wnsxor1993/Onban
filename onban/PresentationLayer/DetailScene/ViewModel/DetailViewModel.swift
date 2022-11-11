@@ -20,15 +20,11 @@ final class DetailViewModel {
         let onbanDetailDescripImages = PublishSubject<[Data?]>()
     }
     
-    private let queryHash: String
     private let usecase: ViewDetailUsecase
     private let output = Output()
     
-    init(queryHash: String, usecase: ViewDetailUsecase) {
-        self.queryHash = queryHash
+    init(usecase: ViewDetailUsecase) {
         self.usecase = usecase
-        
-        self.usecase.setRepositoryQuery(with: queryHash)
     }
     
     func transform(input: Input, disposeBag: DisposeBag) -> Output {

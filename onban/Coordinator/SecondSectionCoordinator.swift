@@ -31,9 +31,9 @@ class SecondSectionCoordinator: Coordinator, DetailNavigateDelegate {
     }
     
     func moveToDetailVC(with hash: String, entity: OnbanFoodEntity) {
-        let detailRepository = ViewDefaultDetailRepository()
+        let detailRepository = ViewDefaultDetailRepository(serviceKind: .foodDetailFetch(foodID: hash))
         let detailUsecase = ViewDefaultDetailUsecase(repository: detailRepository)
-        let detailVM = DetailViewModel(queryHash: hash, usecase: detailUsecase)
+        let detailVM = DetailViewModel(usecase: detailUsecase)
         let detailVC = DetailViewController(detailVM: detailVM, foodEntity: entity)
         
         detailVC.hidesBottomBarWhenPushed = true

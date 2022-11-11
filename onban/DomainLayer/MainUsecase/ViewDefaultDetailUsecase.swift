@@ -9,17 +9,13 @@ import RxSwift
 
 final class ViewDefaultDetailUsecase: ViewDetailUsecase {
     
-    private let repository: ViewDetailRepository
+    private let repository: BasicRepository
     let foodDetailEntity = PublishSubject<OnbanFoodDetailEntity>()
     let detailThumbImages = PublishSubject<[Data?]>()
     let detailDescriptionImages = PublishSubject<[Data?]>()
     
-    init(repository: ViewDetailRepository) {
+    init(repository: BasicRepository) {
         self.repository = repository
-    }
-    
-    func setRepositoryQuery(with hash: String) {
-        repository.setQuery(with: hash)
     }
     
     func execute(with disposeBag: DisposeBag) {

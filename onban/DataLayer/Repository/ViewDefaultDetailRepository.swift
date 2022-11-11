@@ -8,25 +8,25 @@
 import RxSwift
 import Moya
 
-final class ViewDefaultDetailRepository: ViewDetailRepository {
+final class ViewDefaultDetailRepository: BasicRepository {
 
-    var networkService = NetworkProvider.shared
-    private var serviceKind: OnbanService?
+    let networkService = NetworkProvider.shared
+    let serviceKind: OnbanService
     
-    func setQuery(with hash: String) {
-        self.serviceKind = .foodDetailFetch(foodID: hash)
+    init(serviceKind: OnbanService) {
+        self.serviceKind = serviceKind
     }
 
     func requestDTO<T>(with disposeBag: DisposeBag) -> Observable<T> where T: Codable {
 
         return Observable.create { [weak self] observer -> Disposable in
-            guard let self = self, let serviceKind = self.serviceKind else {
+            guard let self = self else {
                 observer.onError(NetworkError.nonSelfError)
 
                 return Disposables.create()
             }
 
-            self.networkService.request(with: serviceKind)
+            self.networkService.request(with: self.serviceKind)
                 .map { JSONConverter<T>().decode(data: $0) }
                 .subscribe { dto in
                     guard let dto = dto else {
