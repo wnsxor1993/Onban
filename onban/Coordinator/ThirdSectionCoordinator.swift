@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ThirdSectionCoordinator: Coordinator {
+class ThirdSectionCoordinator: Coordinator, DetailNavigateDelegate {
     
     weak var parentCoordinator: Coordinator?
     var childCoordinators: [Coordinator] = []
@@ -21,14 +21,23 @@ class ThirdSectionCoordinator: Coordinator {
         let sideRepository: BasicRepository = ViewDefaultMainRepository(serviceKind: .sideFoodFetch)
         let sideUsecase: ViewMainUsecase = ViewDefaultMainUsecase(repository: sideRepository)
         let sideVM = MainViewModel(usecase: sideUsecase)
-        let sideVC = DishViewController(viewModel: sideVM)
+        let sideVC = MainViewController(viewModel: sideVM)
         
         sideVC.deleage = self
+        sideVC.detailNavigationDelegate = self
         sideVC.view.backgroundColor = .white
-        sideVC.tabBarItem = UITabBarItem(title: "Side", image: nil, tag: 2)
         
-        self.navigationController.setNavigationBarHidden(true, animated: false)
         self.navigationController.pushViewController(sideVC, animated: false)
+    }
+    
+    func moveToDetailVC(with hash: String, entity: OnbanFoodEntity) {
+        let detailRepository = ViewDefaultMainRepository(serviceKind: .foodDetailFetch(foodID: hash))
+        let detailUsecase = ViewDefaultDetailUsecase(repository: detailRepository)
+        let detailVM = DetailViewModel(usecase: detailUsecase)
+        let detailVC = DetailViewController(detailVM: detailVM, foodEntity: entity)
+        
+        detailVC.hidesBottomBarWhenPushed = true
+        self.navigationController.pushViewController(detailVC, animated: true)
     }
 }
 

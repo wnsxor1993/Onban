@@ -5,7 +5,6 @@
 //  Created by Zeto on 2022/10/31.
 //
 
-import Foundation
 import RxSwift
 
 final class ViewDefaultMainUsecase: ViewMainUsecase {
@@ -18,7 +17,9 @@ final class ViewDefaultMainUsecase: ViewMainUsecase {
     }
     
     func execute(with disposeBag: DisposeBag) {
-        repository.requestDTO(with: disposeBag)
+        let dtoObserver: Observable<MainData> = repository.requestDTO(with: disposeBag)
+        
+        dtoObserver
             .map { $0.body }
             .subscribe { [weak self] dto in
                 self?.convertToEntity(from: dto)
@@ -29,6 +30,7 @@ final class ViewDefaultMainUsecase: ViewMainUsecase {
 
 private extension ViewDefaultMainUsecase {
     
+    // DTO -> Entity
     func convertToEntity(from onbanDTO: [OnbanFoodDTO]) {
         var foodEntities = [OnbanFoodEntity]()
         

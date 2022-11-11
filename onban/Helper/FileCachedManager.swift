@@ -18,6 +18,7 @@ class FileCachedManager {
         DispatchQueue.global().async {
             guard let data = NSData(contentsOf: url) else { return }
             
+            // Path가 너무 길면 저장에 문제가 생길 수 있으므로 .lastPathComponent를 통해 짧게 유지
             shared.setObject(data, forKey: NSString(string: url.lastPathComponent))
 
             guard let pathURL = path else { return }

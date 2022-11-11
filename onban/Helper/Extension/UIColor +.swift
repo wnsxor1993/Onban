@@ -23,4 +23,9 @@ extension UIColor {
         UIColor RGB(0.502, 0.737, 1.0)
      */
     class var eventAmount: UIColor? { return UIColor(named: "eventAmount")}
+    
+    /**
+        UIColor RGB(0.0, 0.478, 1.0)
+     */
+    class var orderButton: UIColor? { return UIColor(named: "orderButton")}
 }

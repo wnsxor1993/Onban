@@ -11,13 +11,12 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-final class DishViewController: UIViewController {
+final class MainViewController: UIViewController {
     
     private let sectionLabel = UILabel().then {
         $0.textColor = .sectionHeader
         $0.numberOfLines = 2
         $0.font = .systemFont(ofSize: 32, weight: .regular)
-        $0.text = "모두가 좋아하는\n든든한 메인 요리"
     }
     
     private lazy var onbanCollectionView = UICollectionView(frame: .zero, collectionViewLayout: .init()).then {
@@ -32,18 +31,26 @@ final class DishViewController: UIViewController {
     }
     
     weak var deleage: Coordinator?
+    weak var detailNavigationDelegate: DetailNavigateDelegate?
     
     private var viewModel: MainViewModel
     private let disposeBag = DisposeBag()
-    private lazy var input = MainViewModel.CollectionViewInput(defaultShowingDataEvent: self.rx.viewWillAppear)
+    private lazy var input = MainViewModel.Input(defaultShowingDataEvent: self.rx.viewWillAppear)
     private lazy var output = self.viewModel.transform(input: input, disposeBag: self.disposeBag)
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.configureLayouts()
         self.configureFoodData()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.configureSectionTitle()
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     init(viewModel: MainViewModel) {
@@ -58,7 +65,17 @@ final class DishViewController: UIViewController {
     }
 }
 
-extension DishViewController: UICollectionViewDelegateFlowLayout {
+// MARK: Navigation Gesture Back 기능
+extension MainViewController: UIGestureRecognizerDelegate {
+    
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        guard let viewControllers = self.navigationController?.viewControllers, viewControllers.count > 1 else { return false }
+        
+        return true
+    }
+}
+
+extension MainViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (self.view.frame.width - 32)
@@ -67,7 +84,23 @@ extension DishViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-private extension DishViewController {
+private extension MainViewController {
+    
+    func configureSectionTitle() {
+        switch self.navigationController?.tabBarItem.tag {
+        case 0:
+            self.sectionLabel.text = "모두가 좋아하는\n든든한 메인 요리"
+            
+        case 1:
+            self.sectionLabel.text = "정성이 담긴\n뜨끈뜨끈 국물 요리"
+            
+        case 2:
+            self.sectionLabel.text = "식탁을 풍성하게 하는\n정갈한 밑반찬"
+            
+        default:
+            return
+        }
+    }
     
     func configureLayouts() {
         self.view.addSubviews(sectionLabel, onbanCollectionView)
@@ -92,7 +125,6 @@ private extension DishViewController {
     
     // MARK: CollectionView Data Binidng with Rx
     func configureFoodData() {
-        // TODO: ViewModel Observable 정의 및 Model 생성 필요
         // Datasource binding
         self.output.onbanFoodData
             .bind(to: onbanCollectionView.rx
@@ -100,6 +132,7 @@ private extension DishViewController {
                     cell.setFoodValues(title: value.title, description: value.bodyDescription, amount: value.sPrice, discount: value.nPrice)
                     cell.setFoodImage(imageData: value.image, urlString: value.imageURLString)
                     
+                    // reload에 따른 뱃지 중첩 가능성을 막기 위한 대조 작업
                     guard let badges = value.badge, cell.checkNowEventBadgeCounts() != badges.count else { return }
                     
                     badges.forEach {
@@ -113,7 +146,7 @@ private extension DishViewController {
             .bind { [weak self] model in
                 guard let self = self else { return }
                 
-                // TODO: 셀 선택 시 상세 화면 이동 로직 구현 예정
+                self.detailNavigationDelegate?.moveToDetailVC(with: model.detailHash, entity: model)
             }
             .disposed(by: disposeBag)
         
