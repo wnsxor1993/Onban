@@ -30,8 +30,17 @@ final class DetailViewController: UIViewController {
         
         $0.collectionViewLayout = layout
         $0.showsVerticalScrollIndicator = false
+        $0.showsHorizontalScrollIndicator = false
         $0.isPagingEnabled = true
         $0.register(DetailMainImageCell.self, forCellWithReuseIdentifier: DetailMainImageCell.reuseIdentifier)
+    }
+    
+    private var mainImagePageControlView = UIPageControl().then {
+        $0.hidesForSinglePage = true
+        $0.numberOfPages = 0
+        $0.currentPageIndicatorTintColor = .orange
+        $0.pageIndicatorTintColor = .white
+        $0.backgroundColor = .clear
     }
     
     private lazy var detailTextView = DetailTextView(with: foodEntityData)
@@ -79,6 +88,21 @@ extension DetailViewController: UICollectionViewDelegateFlowLayout {
         
         return CGSize(width: width, height: width)
     }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let items = mainImageCollectionView.indexPathsForVisibleItems
+        var index = mainImagePageControlView.currentPage
+        
+        if targetContentOffset.pointee.x > 0 {
+            index += 1
+        } else {
+            index -= 1
+        }
+        
+        guard index >= 0, index < mainImagePageControlView.numberOfPages, let _ = items[safe: index] else { return }
+        
+        mainImagePageControlView.currentPage = index
+    }
 }
 
 private extension DetailViewController {
@@ -87,6 +111,7 @@ private extension DetailViewController {
         self.view.addSubview(scrollView)
         self.scrollView.addSubview(verticalStackView)
         self.verticalStackView.addArrangedSubviews(mainImageCollectionView, detailTextView)
+        self.verticalStackView.addSubview(mainImagePageControlView)
         
         scrollView.snp.makeConstraints { make in
             make.top.bottom.leading.trailing.equalToSuperview()
@@ -106,6 +131,12 @@ private extension DetailViewController {
             make.width.equalToSuperview()
             make.height.equalTo(625)
         }
+        
+        mainImagePageControlView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(mainImageCollectionView.snp.bottom).offset(-18)
+            make.height.equalTo(8)
+        }
     }
     
     func configureDataBinding() {
@@ -114,6 +145,7 @@ private extension DetailViewController {
                 guard let self = self, let entity = entity.element else { return }
                 
                 self.detailTextView.setDescriptionData(with: entity.point, deliveryInfo: entity.deliveryInfo, deliveryFee: entity.deliveryFee)
+                self.mainImagePageControlView.numberOfPages = entity.thumbImageURLStrings.count
             }
             .disposed(by: disposeBag)
         
