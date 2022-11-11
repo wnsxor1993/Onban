@@ -22,7 +22,7 @@
 ## 📝 화면 개요
 |   메인 화면    |   상세 화면   |
 | :----------: | :--------: |
-|  <img src="https://user-images.githubusercontent.com/44107696/199626797-136ba423-0b15-496d-a9c2-903a72703608.gif" width="200"> | <img src="https://i.imgur.com/UvpEdCV.gif)" width="200"> |
+|  <img src="https://user-images.githubusercontent.com/44107696/199626797-136ba423-0b15-496d-a9c2-903a72703608.gif" width="200"> | <img src="https://user-images.githubusercontent.com/44107696/201264205-6323808e-4775-4dcd-99e4-37e93b574964.gif" width="200"> |
 |   스크롤과 서브설명 셀 선택 시, 상세설명 이동    |   상세 화면 구현 시 추가   |
 
 ## ⚙️ 개발 환경
