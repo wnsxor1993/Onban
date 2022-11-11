@@ -22,7 +22,7 @@ final class EventLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setLabelEvent(with eventText: String, width: CGFloat) {
+    func setLabelEvent(with eventText: String) {
         switch eventText {
         case "런칭특가", "메인특가":
             self.backgroundColor = .launchingEvent

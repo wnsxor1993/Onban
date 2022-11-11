@@ -103,30 +103,12 @@ final class TotalFoodCell: UICollectionViewCell {
     }
     
     func setEventLabel(_ event: String) {
-        let label = UILabel().then {
-            $0.font = .systemFont(ofSize: 12, weight: .semibold)
-            $0.textColor = .white
-            $0.textAlignment = .center
-            $0.clipsToBounds = true
-            $0.layer.cornerRadius = 12
-        }
+        let eventLabel = EventLabel()
+        eventLabels.append(eventLabel)
+        eventStackView.addArrangedSubview(eventLabel)
+        eventLabel.setLabelEvent(with: event)
         
         self.eventCount += 1
-        
-        switch event {
-        case "런칭특가", "메인특가":
-            label.backgroundColor = .launchingEvent
-            label.text = event
-            self.configureLayouts(with: 77, for: label)
-            
-        case "이벤트특가":
-            label.backgroundColor = .eventAmount
-            label.text = event
-            self.configureLayouts(with: 89, for: label)
-            
-        default:
-            return
-        }
     }
     
     func checkNowEventBadgeCounts() -> Int {
@@ -165,16 +147,6 @@ private extension TotalFoodCell {
         
         eventStackView.snp.makeConstraints { make in
             make.top.bottom.left.right.equalToSuperview()
-            make.height.equalToSuperview()
-        }
-    }
-    
-    func configureLayouts(with width: CGFloat, for eventLabel: UILabel) {
-        eventLabels.append(eventLabel)
-        eventStackView.addArrangedSubview(eventLabel)
-        
-        eventLabel.snp.makeConstraints { make in
-            make.width.equalTo(width)
             make.height.equalToSuperview()
         }
     }

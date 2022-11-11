@@ -67,28 +67,9 @@ final class DetailTextMainView: UIView {
     }
     
     func setEventLabel(_ event: String) {
-        let label = UILabel().then {
-            $0.font = .systemFont(ofSize: 12, weight: .semibold)
-            $0.textColor = .white
-            $0.textAlignment = .center
-            $0.clipsToBounds = true
-            $0.layer.cornerRadius = 12
-        }
-
-        switch event {
-        case "런칭특가", "메인특가":
-            label.backgroundColor = .launchingEvent
-            label.text = event
-            self.configureLayouts(with: 77, for: label)
-            
-        case "이벤트특가":
-            label.backgroundColor = .eventAmount
-            label.text = event
-            self.configureLayouts(with: 89, for: label)
-            
-        default:
-            return
-        }
+        let eventLabel = EventLabel()
+        eventStackView.addArrangedSubview(eventLabel)
+        eventLabel.setLabelEvent(with: event)
     }
 }
 
@@ -123,15 +104,6 @@ private extension DetailTextMainView {
             make.top.equalTo(amountLabel.snp.bottom).offset(16)
             make.leading.equalTo(amountLabel)
             make.height.equalTo(24)
-        }
-    }
-    
-    func configureLayouts(with width: CGFloat, for eventLabel: UILabel) {
-        eventStackView.addArrangedSubview(eventLabel)
-        
-        eventLabel.snp.makeConstraints { make in
-            make.width.equalTo(width)
-            make.height.equalToSuperview()
         }
     }
 }
